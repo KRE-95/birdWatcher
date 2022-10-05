@@ -1,14 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+    <!-- TODO: Check how it works when it is dark mode on -->
     <style name="Theme.BirdWatcher" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/prime_Dk_green</item>
+        <item name="colorPrimaryVariant">@color/prime_Dk_green</item>
+        <item name="colorOnPrimary">@color/prime_Dk_green</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/second_Lt_green</item>
+        <item name="colorSecondaryVariant">@color/second_Lt_green</item>
+        <item name="colorOnSecondary">@color/second_Lt_green</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
