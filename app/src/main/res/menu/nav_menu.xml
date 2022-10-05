@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- items for icons navigation's drawer -->
+    <item
+        android:id="@+id/home_cam"
+        android:title="@string/home"
+        android:icon="@drawable/ic_round_photo_camera_24"
+        >
+    </item>
+
+    <item
+        android:id="@+id/gallery"
+        android:title="@string/gallery"
+        android:icon="@drawable/ic_round_gallery_album_24"
+        >
+    </item>
+
+    <item
+        android:id="@+id/global"
+        android:title="@string/global"
+        android:icon="@drawable/ic_round_global_alt_24"
+        >
+    </item>
+
+    <item
+        android:id="@+id/search"
+        android:title="@string/search"
+        android:icon="@drawable/ic_round_image_search_24"
+        >
+    </item>
+
+
+</menu>
