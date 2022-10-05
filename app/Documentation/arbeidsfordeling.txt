@@ -1,0 +1,20 @@
+material design - fargevalg
+model og view, ikke nødvendigvis koblet disse sammen
+
+
+
+gallery
+kamera
+API
+TODO: modelklasser - marianne
+seed data
+database
+toolbar
+TODO: view - erik
+hente ut dato
+hente ut stedsdata
+søkefunksjonalitet?
+tester?
+
+FERDIG?
+navigation draw  - kainat

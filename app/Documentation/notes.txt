@@ -1,0 +1,51 @@
+When implementing navcontroller get a error .
+will check it later:
+
+just copy pasting pervious work - for now add as it is .
+
+package com.example.birdwatcher
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.ImageView
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.navigation.NavigationView
+
+
+class MainActivity : AppCompatActivity() {
+    // navigation drawer
+    private lateinit var  drawerOpen: ImageView
+
+    private lateinit var navigationDrawer: NavigationView
+
+    private lateinit var drawerLayout: DrawerLayout
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // nav drawer
+        drawerOpen= findViewById(R.id.drawer_slide_open)
+        navigationDrawer = findViewById(R.id.navigation_drawer)
+        drawerLayout = findViewById(R.id.drawer_layout)
+
+        drawerOpen.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        val navController: NavController=Navigation.findNavController(this,R.id.fragment_container_view_tag)
+        NavigationUI.setupWithNavController(navigationDrawer,navController)
+
+
+    }
+}
+
+Error:
+FATAL EXCEPTION: main
+                                                                                                    Process: com.example.birdwatcher, PID: 16101
+                                                                                                    java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.birdwatcher/com.example.birdwatcher.MainActivity}: java.lang.IllegalStateException: Activity com.example.birdwatcher.MainActivity@72e4e96 does not have a NavController set on 2131230927
