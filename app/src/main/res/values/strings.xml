@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">bird Watcher</string>
+    <string name="birdwatcher">birdWatcher</string>
 </resources>
