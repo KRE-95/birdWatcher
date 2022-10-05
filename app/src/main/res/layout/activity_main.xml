@@ -61,13 +61,20 @@
             >
         </fragment>
 
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- when opening the hambruger menu, how it will look like -->
+<com.google.android.material.navigation.NavigationView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    app:menu="@menu/nav_menu"
 
+    >
+
+
+    <!--  -->
+</com.google.android.material.navigation.NavigationView>
 
 
 
