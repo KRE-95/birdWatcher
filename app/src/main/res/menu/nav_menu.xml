@@ -3,28 +3,28 @@
 
     <!-- items for icons navigation's drawer -->
     <item
-        android:id="@+id/home_cam"
+        android:id="@+id/homeFragment"
         android:title="@string/home"
         android:icon="@drawable/ic_round_photo_camera_24"
         >
     </item>
 
     <item
-        android:id="@+id/gallery"
+        android:id="@+id/galleryFragment"
         android:title="@string/gallery"
         android:icon="@drawable/ic_round_gallery_album_24"
         >
     </item>
 
     <item
-        android:id="@+id/global"
+        android:id="@+id/globalFragment"
         android:title="@string/global"
         android:icon="@drawable/ic_round_global_alt_24"
         >
     </item>
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/searchFragment"
         android:title="@string/search"
         android:icon="@drawable/ic_round_image_search_24"
         >
