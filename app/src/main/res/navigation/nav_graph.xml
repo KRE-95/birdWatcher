@@ -25,4 +25,8 @@
         android:name="com.gruppe16.birdwatcher.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/selectedItemFragment"
+        android:name="com.gruppe16.birdwatcher.SelectedItemFragment"
+        android:label="SelectedItemFragment" />
 </navigation>
