@@ -29,4 +29,9 @@
         android:id="@+id/selectedItemFragment"
         android:name="com.gruppe16.birdwatcher.SelectedItemFragment"
         android:label="SelectedItemFragment" />
+    <fragment
+        android:id="@+id/editSelectedItemFragment"
+        android:name="com.gruppe16.birdwatcher.EditSelectedItemFragment"
+        android:label="fragment_editselecteditem"
+        tools:layout="@layout/fragment_editselecteditem" />
 </navigation>
