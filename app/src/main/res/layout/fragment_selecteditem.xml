@@ -11,18 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <ImageView
             android:id="@+id/selectedItem"
             android:layout_width="259dp"
             android:layout_height="170dp"
             android:layout_marginStart="76dp"
-            android:layout_marginTop="32dp"
             android:layout_marginEnd="76dp"
-            android:layout_marginBottom="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/selectedSpecies"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.103"
             tools:srcCompat="@tools:sample/avatars[3]" />
 
         <TextView
@@ -33,10 +34,12 @@
             android:layout_marginTop="25dp"
             android:layout_marginEnd="106dp"
             android:text="selectedSpecies"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/selectedItem" />
-
+            app:layout_constraintTop_toBottomOf="@+id/selectedItem"
+            app:layout_constraintVertical_bias="0.039" />
 
         <TextView
             android:id="@+id/selectedPlace"
@@ -46,10 +49,12 @@
             android:layout_marginTop="25dp"
             android:layout_marginEnd="106dp"
             android:text="selectedPlace"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/selectedSpecies" />
+            app:layout_constraintTop_toBottomOf="@+id/selectedSpecies"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/selectedDate"
@@ -59,10 +64,12 @@
             android:layout_marginTop="25dp"
             android:layout_marginEnd="106dp"
             android:text="selectedDate"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/selectedPlace" />
+            app:layout_constraintTop_toBottomOf="@+id/selectedPlace"
+            app:layout_constraintVertical_bias="0.108" />
 
         <TextView
             android:id="@+id/userComment"
@@ -75,8 +82,10 @@
             android:text="userComment"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/selectedDate" />
+            app:layout_constraintTop_toBottomOf="@+id/selectedDate"
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

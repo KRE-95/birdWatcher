@@ -20,32 +20,40 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="55dp"
             android:text="@string/place"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/userComment"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateSwitch" />
+            app:layout_constraintTop_toBottomOf="@+id/dateSwitch"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="351dp"
             android:layout_height="201dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="28dp"
             android:layout_marginEnd="32dp"
             android:contentDescription="@string/picture_of_selected_bird"
             android:src="@drawable/ic_round_photo_camera_24"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.079" />
 
         <Spinner
             android:id="@+id/speciesSpinner"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:contentDescription="@string/spinner_for_species_selection"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.102"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/userComment"
@@ -55,10 +63,12 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:text="@string/usercomment"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/speciesSpinner"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Switch
             android:id="@+id/dateSwitch"
@@ -68,9 +78,12 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="55dp"
             android:text="@string/date"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/userComment"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/speciesSpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/speciesSpinner"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/saveEditBtn"
@@ -81,13 +94,13 @@
             android:layout_marginEnd="146dp"
             android:layout_marginBottom="87dp"
             android:text="@string/save"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userComment"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/black"
 
             />
 
