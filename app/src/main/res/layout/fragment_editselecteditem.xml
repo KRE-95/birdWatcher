@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditSelectedItemFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cameraMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Switch
+            android:id="@+id/dateSwitch2"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="55dp"
+            android:text="@string/place"
+            app:layout_constraintEnd_toStartOf="@+id/userComment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateSwitch" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="351dp"
+            android:layout_height="201dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/picture_of_selected_bird"
+            android:src="@drawable/ic_round_photo_camera_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/speciesSpinner"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/spinner_for_species_selection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/userComment"
+            android:layout_width="192dp"
+            android:layout_height="285dp"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/usercomment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/speciesSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <Switch
+            android:id="@+id/dateSwitch"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="55dp"
+            android:text="@string/date"
+            app:layout_constraintEnd_toStartOf="@+id/userComment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/speciesSpinner" />
+
+        <Button
+            android:id="@+id/saveEditBtn"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="146dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="146dp"
+            android:layout_marginBottom="87dp"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userComment"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

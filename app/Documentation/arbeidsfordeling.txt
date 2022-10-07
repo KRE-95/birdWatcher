@@ -4,17 +4,22 @@ model og view, ikke nødvendigvis koblet disse sammen
 
 
 gallery
-kamera
+TODO: kamera - marianne
 API
 TODO: modelklasser - marianne
 seed data
 database
 toolbar
 TODO: view - erik
+TODO: rediger oppføring fragment? - erik
 hente ut dato
 hente ut stedsdata
 søkefunksjonalitet?
 tester?
+
+hvordan bygge opp viewmodel klassen?
+hva trenger vi av data inn i view, se på viewmodel for dette?
+seede i android studio?
 
 FERDIG?
 navigation draw  - kainat

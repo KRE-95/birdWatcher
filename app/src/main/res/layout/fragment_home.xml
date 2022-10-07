@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout for home -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cameraMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home + camera button"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/fossekallMain"
+            android:layout_width="354dp"
+            android:layout_height="211dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="29dp"
+            android:contentDescription="@string/white_throated_dipper_in_natural_surroundings"
+            android:src="@drawable/fossekallmain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/captureBtnMain"
+            android:layout_width="145dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="133dp"
+            android:layout_marginTop="62dp"
+            android:layout_marginEnd="133dp"
+            android:layout_marginBottom="353dp"
+            android:backgroundTint="@color/second_Lt_green"
+            android:text="@string/capture"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fossekallMain"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
