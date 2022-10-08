@@ -33,6 +33,5 @@ class MainActivity : AppCompatActivity() {
         val navController:NavController=Navigation.findNavController(this,R.id.fragment)
         NavigationUI.setupWithNavController(navigationDrawer,navController)
 
-
     }
 }
