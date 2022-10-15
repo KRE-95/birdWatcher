@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val newUser = User("Hi World")
+        val newUser = User("I was here")
         saveUser(newUser)
 
         // from activity_main xml - for navigation drawer
