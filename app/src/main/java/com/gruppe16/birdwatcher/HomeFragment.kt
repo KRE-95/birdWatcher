@@ -31,7 +31,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var cameraExecutor: ExecutorService
 
     private fun startCamera() {
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(this.requireContext())
 
         cameraProviderFuture.addListener({
             // Used to bind the lifecycle of cameras to the lifecycle owner
@@ -74,7 +74,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             startCamera()
         } else {
             ActivityCompat.requestPermissions(
-                this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
+               this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
         // Set up the listeners for take photo and video capture buttons
@@ -111,7 +111,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(
-            baseContext, it) == PackageManager.PERMISSION_GRANTED
+            this.requireContext(), it) == PackageManager.PERMISSION_GRANTED
     }
 
     override fun onRequestPermissionsResult(
@@ -122,11 +122,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 val startCamera = true
             } else {
                 Toast.makeText(
-                    this,
+                    context,
                     "Permissions not granted by the user.",
                     Toast.LENGTH_SHORT
                 ).show()
-                finish()
             }
         }
+    }
 }
