@@ -115,6 +115,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         val msg = "Photo capture succeeded: ${output.savedUri}"
                         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, msg)
+                        bindingHomeFragment.toListingBtn.text = "Make listing"
                     }
                     override fun onError(exc: ImageCaptureException) {
                         Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
