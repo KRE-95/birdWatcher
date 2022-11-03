@@ -5,55 +5,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.gruppe16.birdwatcher.adapter.GalleryRecyclerAdapter
+import com.gruppe16.birdwatcher.data.Listing
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [GalleryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class GalleryFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gallery, container, false)
-    }
+    // lage front-end på gallery
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment GalleryFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            GalleryFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+     // sett opp RecycleView_galley
+
+private lateinit var adapter: GalleryRecyclerAdapter
+private lateinit var recyclerView: RecyclerView
+ private lateinit var galleryArrayList : ArrayList<Listing>
+
+ lateinit var pictureId : Array<Int>
+
+ lateinit var listing: Array<String>
+
+
+
+
+
+
+
+    // Koble recyleview med items fra layout
+
+    // lage mappe kalt adapter
+
+    // i adapter koble alt info av list item osv
+
+
+    // hente bilde/text fra data Listing og koble til Firebase?
+
+
 }

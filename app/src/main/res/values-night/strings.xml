@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="display_of_bird_picture">display of bird picture</string>
+    <string name="species">Species:</string>
+    <string name="description_about_bird">description about bird</string>
+    <string name="place_location">Place:</string>
+    <string name="location_for_where_bird_was_found">location for where bird was found</string>
+    <string name="when_picture_was_taken">when picture was taken</string>
+    <string name="time">Time:</string>
+    <string name="bird">Bird:</string>
+    <string name="write_down_the_name_bird">Write down the name bird.</string>
+</resources>
