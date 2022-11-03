@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -20,7 +21,9 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import com.google.firebase.storage.FirebaseStorage
 import com.gruppe16.birdwatcher.databinding.FragmentHomeBinding
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -96,6 +99,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
 
+        val selectedPhotoString = "/storage/emulated/O/Pictures/CameraX-Image/2022-11-03-18-16-16-672.jpg"
+        val selectedPhotoUri = selectedPhotoString.toUri();
         // Create output options object which contains file + metadata
         val outputOptions = context?.let {
             ImageCapture.OutputFileOptions
@@ -116,6 +121,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, msg)
                         bindingHomeFragment.toListingBtn.text = "Make listing"
+                        bindingHomeFragment.toListingBtn.setOnClickListener { uploadPhotoToFirebase(name, output.savedUri) }
                     }
                     override fun onError(exc: ImageCaptureException) {
                         Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
@@ -123,6 +129,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
             )
         }
+    }
+
+    private fun uploadPhotoToFirebase(name: String, selectedPhotoUri: Uri?) {
+        val storage = FirebaseStorage.getInstance().getReference("/photos/$name")
+
+        storage.putFile(selectedPhotoUri!!)
+            .addOnCanceledListener {
+                Log.d(TAG, "Successfully uploaded photo.")
+            }
     }
 
     override fun onDestroy() {
