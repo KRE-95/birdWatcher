@@ -34,9 +34,6 @@ class MainActivity : AppCompatActivity() {
         navigationDrawer=findViewById(R.id.nav_drawer)
         drawerLayout=findViewById(R.id.drawer_layout)
 
-
-
-
         // when click
         drawerOpen.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
