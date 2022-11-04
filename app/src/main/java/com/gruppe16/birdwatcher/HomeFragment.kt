@@ -2,9 +2,9 @@ package com.gruppe16.birdwatcher
 
 import android.Manifest
 import android.app.Activity
-import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -21,7 +21,16 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.gruppe16.birdwatcher.data.Listing
+import com.gruppe16.birdwatcher.data.User
 import com.gruppe16.birdwatcher.databinding.FragmentHomeBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.text.SimpleDateFormat
@@ -34,6 +43,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val bindingHomeFragment get() = _binding!!
     private var imageCapture: ImageCapture? = null
     private lateinit var cameraExecutor: ExecutorService
+    private  val listingCollectionRef = Firebase.firestore.collection("listings")
+    private  val userCollectionRef = Firebase.firestore.collection("users")
 
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this.requireContext())
@@ -76,6 +87,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                activity as Activity, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
+        //Testing that firebase works
+        //TODO: delete when done testing
+//        val newList = mutableListOf(2)
+//        val newUser = User("Anne Hansen", newList)
+//        saveUser(newUser)
+//
+//        val newListing = Listing(
+//            2,
+//            "Flycatcher",
+//            "https://firebasestorage.googleapis.com/v0/b/birdwatcher-3cf34.appspot.com/o/photos%2F2022-11-03-21-05-28-794?alt=media&token=10e5f211-e99d-4d1b-9648-264474c44c3b",
+//            "Cool bird",
+//            "Anne Hansen"
+//        )
+//        saveListing(newListing)
+
         bindingHomeFragment.captureBtnMain.setOnClickListener { takePhoto() }
 
         cameraExecutor = Executors.newSingleThreadExecutor()
@@ -96,7 +122,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
 
-        // Create output options object which contains file + metadata
         val outputOptions = context?.let {
             ImageCapture.OutputFileOptions
                 .Builder( it.contentResolver,
@@ -115,12 +140,53 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         val msg = "Photo capture succeeded: ${output.savedUri}"
                         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, msg)
+                        bindingHomeFragment.toListingBtn.text = "Make listing"
+                        bindingHomeFragment.toListingBtn.setOnClickListener { uploadPhotoToFirebase(name, output.savedUri) }
                     }
                     override fun onError(exc: ImageCaptureException) {
                         Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
                     }
                 }
             )
+        }
+    }
+
+    private fun uploadPhotoToFirebase(name: String, selectedPhotoUri: Uri?) {
+        val storage = FirebaseStorage.getInstance().getReference("/photos/$name")
+
+        storage.putFile(selectedPhotoUri!!)
+            .addOnCanceledListener {
+                Log.d(TAG, "Successfully uploaded photo.")
+
+                storage.downloadUrl.addOnSuccessListener {
+                    Log.d(TAG, "URL: $it")
+                }
+            }
+    }
+
+    protected fun saveUser(user: User)  = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            userCollectionRef.add(user)
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@HomeFragment.requireContext(), "Saved data", Toast.LENGTH_LONG).show()
+            }
+        } catch(e: Exception) {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@HomeFragment.requireContext(), e.message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    private fun saveListing(listing: Listing)  = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            listingCollectionRef.add(listing)
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@HomeFragment.requireContext(), "Saved data", Toast.LENGTH_LONG).show()
+            }
+        } catch(e: Exception) {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@HomeFragment.requireContext(), e.message, Toast.LENGTH_LONG).show()
+            }
         }
     }
 
