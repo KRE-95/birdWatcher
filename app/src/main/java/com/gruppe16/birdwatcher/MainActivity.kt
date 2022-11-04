@@ -15,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.navigation.NavigationView
+import com.gruppe16.birdwatcher.data.User
 import com.gruppe16.birdwatcher.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         drawerOpen=findViewById(R.id.drawer_open)
         navigationDrawer=findViewById(R.id.nav_drawer)
         drawerLayout=findViewById(R.id.drawer_layout)
+
+
 
 
         // when click
