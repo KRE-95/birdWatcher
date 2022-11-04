@@ -60,7 +60,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_bar"
             app:layout_constraintVertical_bias="0.0"
-            app:navGraph="@navigation/nav_graph"></fragment>
+            app:navGraph="@navigation/nav_graph">
+
+        </fragment>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -83,3 +85,4 @@
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
+

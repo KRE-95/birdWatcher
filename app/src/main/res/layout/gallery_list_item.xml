@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ImageV_Display_Gallery"
+            android:layout_width="165dp"
+            android:layout_height="112dp"
+            android:layout_margin="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/display_of_bird_picture"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/fossekallmain" />
+
+        <TextView
+            android:id="@+id/tV_BirdName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/the_title_of_the_bird"
+            android:text="@string/bird"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.172" />
+
+        <TextView
+            android:id="@+id/tV_Description_Gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/description_about_bird"
+            android:text="@string/description"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
+            app:layout_constraintTop_toTopOf="@+id/tV_BirdName" />
+
+        <TextView
+            android:id="@+id/tV_Place_Gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/location_for_where_bird_was_found"
+            android:text="@string/place_location"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/ImageV_Display_Gallery"
+            app:layout_constraintTop_toTopOf="@+id/tV_Description_Gallery" />
+
+        <TextView
+            android:id="@+id/tV_Time_Gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="28dp"
+            android:contentDescription="@string/when_picture_was_taken"
+            android:text="@string/time"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/ImageV_Display_Gallery"
+            app:layout_constraintTop_toTopOf="@+id/tV_Place_Gallery"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
