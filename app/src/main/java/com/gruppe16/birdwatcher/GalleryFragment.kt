@@ -13,13 +13,13 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
 
 
-    // lage front-end på gallery
+    // lage front-end på gallery - done
 
-     // sett opp RecycleView_galley
+     // sett opp RecycleView_galley 
 
 private lateinit var adapter: GalleryRecyclerAdapter
 private lateinit var recyclerView: RecyclerView
- private lateinit var galleryArrayList : ArrayList<Listing>
+private lateinit var galleryArrayList : ArrayList<Listing>
 
  lateinit var pictureId : Array<Int>
 
@@ -31,9 +31,9 @@ private lateinit var recyclerView: RecyclerView
 
 
 
-    // Koble recyleview med items fra layout
+    // Koble recyleview med items fra layout done
 
-    // lage mappe kalt adapter
+    // lage mappe kalt adapter - done
 
     // i adapter koble alt info av list item osv
 
