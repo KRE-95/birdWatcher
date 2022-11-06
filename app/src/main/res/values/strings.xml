@@ -22,7 +22,6 @@
     <string name="selectedplace">selectedPlace</string>
     <string name="selecteddate">selectedDate</string>
     <string name="edit">Edit</string>
-</resources>
     <string name="display_of_bird_picture">display of bird picture</string>
     <string name="species">Species:</string>
     <string name="description_about_bird">description about bird</string>
