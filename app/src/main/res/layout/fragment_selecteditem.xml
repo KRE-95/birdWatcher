@@ -33,7 +33,7 @@
             android:layout_marginStart="106dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="106dp"
-            android:text="selectedSpecies"
+            android:text="@string/selectedspecies"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -48,7 +48,7 @@
             android:layout_marginStart="106dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="106dp"
-            android:text="selectedPlace"
+            android:text="@string/selectedplace"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -63,7 +63,7 @@
             android:layout_marginStart="106dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="106dp"
-            android:text="selectedDate"
+            android:text="@string/selecteddate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -86,6 +86,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selectedDate"
             app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/editSelectedItemButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit"
+            android:textColor="#6D4C41"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userComment"
+            app:layout_constraintVertical_bias="0.487" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

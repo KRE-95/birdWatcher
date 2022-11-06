@@ -18,4 +18,8 @@
     <string name="save">Save</string>
     <string name="place">Place</string>
     <string name="spinner_for_species_selection">spinner_for_species_selection</string>
-    </resources>
+    <string name="selectedspecies">selectedSpecies</string>
+    <string name="selectedplace">selectedPlace</string>
+    <string name="selecteddate">selectedDate</string>
+    <string name="edit">Edit</string>
+</resources>

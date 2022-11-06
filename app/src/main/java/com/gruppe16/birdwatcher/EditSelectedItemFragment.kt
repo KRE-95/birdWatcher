@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.gruppe16.birdwatcher.databinding.FragmentEditselecteditemBinding
 import com.gruppe16.birdwatcher.databinding.FragmentSelecteditemBinding
 
@@ -46,6 +47,18 @@ class EditSelectedItemFragment : Fragment(R.layout.fragment_editselecteditem) {
         return view
     }
 
-    //TODO: add logic for saving edits to firebase and link to button
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val saveEditButton : Button = view.findViewById(R.id.saveEditButton)
+        saveEditButton.setOnClickListener{
+            // TODO: call saveEdits
+        // TODO: go to selectedItem Activity
+
+        }
+    }
+
+
+    //TODO: add logic for saving edits to firebase
     private fun saveEdits(){}
 }
