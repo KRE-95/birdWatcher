@@ -22,7 +22,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/fossekallmain" />
+            app:srcCompat="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/tV_BirdName"
@@ -47,10 +47,13 @@
             android:contentDescription="@string/description_about_bird"
             android:text="@string/description"
             android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
-            app:layout_constraintTop_toTopOf="@+id/tV_BirdName" />
+            app:layout_constraintTop_toTopOf="@+id/tV_BirdName"
+            app:layout_constraintVertical_bias="0.132" />
 
-        <TextView
+        <!--  undo when Db is on place
+           <TextView
             android:id="@+id/tV_Place_Gallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,6 +78,9 @@
             app:layout_constraintStart_toStartOf="@+id/ImageV_Display_Gallery"
             app:layout_constraintTop_toTopOf="@+id/tV_Place_Gallery"
             app:layout_constraintVertical_bias="0.0" />
+
+          -->
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
