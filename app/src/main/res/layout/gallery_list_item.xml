@@ -4,7 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="4dp">
+    android:layout_margin="@dimen/cardview_compat_inset_shadow"
+    app:cardBackgroundColor="@color/prime_Dk_green"
+    app:cardCornerRadius="15dp"
+    app:contentPadding="10dp"
+   android:padding="@dimen/cardview_compat_inset_shadow"
+    app:flow_horizontalGap="@dimen/cardview_compat_inset_shadow"
+    app:flow_verticalGap="@dimen/cardview_compat_inset_shadow">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,7 +18,7 @@
 
         <ImageView
             android:id="@+id/ImageV_Display_Gallery"
-            android:layout_width="165dp"
+            android:layout_width="wrap_content"
             android:layout_height="112dp"
             android:layout_margin="0dp"
             android:layout_marginStart="16dp"
@@ -22,7 +28,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/fossekallmain" />
+            app:srcCompat="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/tV_BirdName"
@@ -50,7 +56,9 @@
             app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
             app:layout_constraintTop_toTopOf="@+id/tV_BirdName" />
 
-        <TextView
+        <!-- undo when DB is on place
+
+         <TextView
             android:id="@+id/tV_Place_Gallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,7 +82,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/ImageV_Display_Gallery"
             app:layout_constraintTop_toTopOf="@+id/tV_Place_Gallery"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0" /> -->
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

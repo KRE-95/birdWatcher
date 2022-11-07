@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
     // global (not null) this for navigation drawer - connect three navigation coponents.
     lateinit var drawerOpen: ImageView
     lateinit var navigationDrawer: NavigationView
-    lateinit var drawerLayout: DrawerLayout
+    // wrapper er main activty
+    lateinit var wrapper: DrawerLayout
     private lateinit var viewBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,14 +33,11 @@ class MainActivity : AppCompatActivity() {
         // from activity_main xml - for navigation drawer
         drawerOpen=findViewById(R.id.drawer_open)
         navigationDrawer=findViewById(R.id.nav_drawer)
-        drawerLayout=findViewById(R.id.drawer_layout)
-
-
-
+        wrapper=findViewById(R.id.wrapper)
 
         // when click
         drawerOpen.setOnClickListener {
-            drawerLayout.openDrawer(GravityCompat.START)
+            wrapper.openDrawer(GravityCompat.START)
         }
         // to connect
         val navController:NavController=Navigation.findNavController(this,R.id.fragment)

@@ -23,8 +23,8 @@ class GalleryRecyclerAdapter (private val galleryListing : ArrayList<Listing> ):
         val currentItem= galleryListing[position]
         holder.birdName.text = currentItem.birdName
         holder.description.text = currentItem.description
-        holder.place.text = currentItem.place
-        holder.time.text = currentItem.time
+        //holder.place.text = currentItem.place
+        //holder.time.text = currentItem.time
         //holder.picture.setImageResource(currentItem.picture)
 
     }
@@ -38,8 +38,8 @@ class GalleryRecyclerAdapter (private val galleryListing : ArrayList<Listing> ):
         val birdName: TextView = itemView.findViewById(R.id.tV_BirdName)
         //val picture: ImageView = itemView.findViewById(R.id.ImageV_Display_Gallery)
         val description: TextView = itemView.findViewById(R.id.tV_Description_Gallery)
-        val place: TextView = itemView.findViewById(R.id.tV_Place_Gallery)
-        val time: TextView = itemView.findViewById(R.id.tV_Time_Gallery)
+        //val place: TextView = itemView.findViewById(R.id.tV_Place_Gallery)
+        //val time: TextView = itemView.findViewById(R.id.tV_Time_Gallery)
 
 
     }
