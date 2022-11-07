@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.gruppe16.birdwatcher.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_createItem"
+            app:destination="@id/createItem" />
+    </fragment>
     <fragment
         android:id="@+id/galleryFragment"
         android:name="com.gruppe16.birdwatcher.GalleryFragment"
@@ -34,4 +38,9 @@
         android:name="com.gruppe16.birdwatcher.EditSelectedItemFragment"
         android:label="fragment_editselecteditem"
         tools:layout="@layout/fragment_editselecteditem" />
+    <fragment
+        android:id="@+id/createItem"
+        android:name="com.gruppe16.birdwatcher.CreateItem"
+        android:label="fragment_create_item"
+        tools:layout="@layout/fragment_create_item" />
 </navigation>

@@ -21,6 +21,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -141,7 +142,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, msg)
                         bindingHomeFragment.toListingBtn.text = "Make listing"
-                        bindingHomeFragment.toListingBtn.setOnClickListener { uploadPhotoToFirebase(name, output.savedUri) }
+                        bindingHomeFragment.toListingBtn.setOnClickListener {
+                            uploadPhotoToFirebase(name, output.savedUri)
+                            findNavController().navigate(R.id.action_homeFragment_to_createItem)}
                     }
                     override fun onError(exc: ImageCaptureException) {
                         Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
