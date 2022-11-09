@@ -33,4 +33,6 @@
     <string name="bird">Bird:</string>
     <string name="write_down_the_name_bird">Write down the name bird.</string>
     <string name="the_title_of_the_bird">The title of the bird</string>
+    <string name="username">Username</string>
+    <string name="datehint">MM.DD.YYYY</string>
 </resources>
