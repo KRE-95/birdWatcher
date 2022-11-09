@@ -17,12 +17,10 @@ import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.databinding.FragmentHomeBinding
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.concurrent.ExecutorService
 
 class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
-    private lateinit var cameraExecutor: ExecutorService
     private var imageCapture: ImageCapture? = null
-    private var TAG = "Homefragment"
+    private var TAG = "HomeFragment"
 
     fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(fragment.requireContext())
@@ -58,7 +56,6 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
 
         val name = SimpleDateFormat(HomeFragment.FILENAME_FORMAT, Locale.US)
             .format(System.currentTimeMillis())
-        Log.d(TAG, "HERE IS THE TIME:" + name)
         val contentValues = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, name)
             put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
@@ -97,5 +94,4 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
             )
         }
     }
-
 }

@@ -11,7 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.camera.core.ImageCapture
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -34,7 +33,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private var _binding : FragmentHomeBinding? = null
     private val bindingHomeFragment get() = _binding!!
-    private var imageCapture: ImageCapture? = null
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var camera: CameraX
     private  val listingCollectionRef = Firebase.firestore.collection("listings")
@@ -45,12 +43,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return bindingHomeFragment.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         if (allPermissionsGranted()) {
-            camera = CameraX(this, bindingHomeFragment);
+            camera = CameraX(this, bindingHomeFragment)
             camera.startCamera()
         } else {
             ActivityCompat.requestPermissions(
-               activity as Activity, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
+                activity as Activity, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
         //Testing that firebase works
@@ -69,9 +72,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 //        saveListing(newListing)
 
         bindingHomeFragment.captureBtnMain.setOnClickListener { camera.takePhoto(this, bindingHomeFragment) }
-
         cameraExecutor = Executors.newSingleThreadExecutor()
-        return bindingHomeFragment.root
     }
 
     private fun uploadPhotoToFirebase(name: String, selectedPhotoUri: Uri?) {
