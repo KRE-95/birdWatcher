@@ -1,10 +1,11 @@
-package com.gruppe16.birdwatcher
+package com.gruppe16.birdwatcher.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.gruppe16.birdwatcher.R
 
 
 class CreateItem : Fragment() {
