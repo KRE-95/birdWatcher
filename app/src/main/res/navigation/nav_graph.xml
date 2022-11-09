@@ -42,5 +42,9 @@
         android:id="@+id/createItem"
         android:name="com.gruppe16.birdwatcher.fragments.CreateItem"
         android:label="fragment_create_item"
-        tools:layout="@layout/fragment_create_item" />
+        tools:layout="@layout/fragment_create_item" >
+        <action
+            android:id="@+id/action_createItem_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

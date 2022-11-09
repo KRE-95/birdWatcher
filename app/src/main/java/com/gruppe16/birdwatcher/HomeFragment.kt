@@ -31,8 +31,8 @@ import java.util.concurrent.Executors
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
 
-    private var _binding : FragmentHomeBinding? = null
-    private val bindingHomeFragment get() = _binding!!
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var camera: CameraX
     private  val listingCollectionRef = Firebase.firestore.collection("listings")
@@ -43,13 +43,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return bindingHomeFragment.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (allPermissionsGranted()) {
-            camera = CameraX(this, bindingHomeFragment)
+            camera = CameraX(this, binding)
             camera.startCamera()
         } else {
             ActivityCompat.requestPermissions(
@@ -71,7 +71,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 //        )
 //        saveListing(newListing)
 
-        bindingHomeFragment.captureBtnMain.setOnClickListener { camera.takePhoto(this, bindingHomeFragment) }
+        binding.captureBtnMain.setOnClickListener { camera.takePhoto(this,
+            binding
+        ) }
         cameraExecutor = Executors.newSingleThreadExecutor()
     }
 

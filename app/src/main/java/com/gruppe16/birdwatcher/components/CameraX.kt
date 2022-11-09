@@ -85,7 +85,8 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
                         binding.toListingBtn.text = "Make listing"
                         binding.toListingBtn.setOnClickListener {
                             //.uploadPhotoToFirebase(name, output.savedUri)
-                            fragment.findNavController().navigate(R.id.action_homeFragment_to_createItem)}
+                            fragment.findNavController().navigate(R.id.action_homeFragment_to_createItem)
+                        }
                     }
                     override fun onError(exc: ImageCaptureException) {
                         Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
