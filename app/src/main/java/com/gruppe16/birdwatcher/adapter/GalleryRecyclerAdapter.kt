@@ -20,10 +20,13 @@ class GalleryRecyclerAdapter (private val galleryListing : ArrayList<Listing> ):
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem= galleryListing[position]
+        val currentItem = galleryListing[position]
+
+        //holder.picture.text = currentItem.picture
         holder.birdName.text = currentItem.birdName
         holder.description.text = currentItem.description
 
+    //TODO: Flere ting legges til her ettersom vi får mer data på plass for listing
 
     }
 
@@ -33,10 +36,12 @@ class GalleryRecyclerAdapter (private val galleryListing : ArrayList<Listing> ):
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
      // gallery_list + listing
+
+       // val picture: TextView = itemView.findViewById(R.id.ImageV_Display_Gallery)
         val birdName: TextView = itemView.findViewById(R.id.tV_BirdName)
         val description: TextView = itemView.findViewById(R.id.tV_Description_Gallery)
 
-
+        //TODO: Flere ting legges til her ettersom vi får mer data på plass for listing
 
     }
 

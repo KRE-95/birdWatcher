@@ -33,4 +33,8 @@
     <string name="bird">Bird:</string>
     <string name="write_down_the_name_bird">Write down the name bird.</string>
     <string name="the_title_of_the_bird">The title of the bird</string>
+
+    <!-- TODO: ONLY USED TO TEST RECYCLERVIEW -->
+    <string name="birdName_1">Fossekall</string>
+    <string name="description_1">Cool bird!</string>
 </resources>
