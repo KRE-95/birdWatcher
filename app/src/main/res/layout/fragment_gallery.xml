@@ -17,10 +17,9 @@
             android:layout_height="557dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.515"
             tools:listitem="@layout/gallery_list_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

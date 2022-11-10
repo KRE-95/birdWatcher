@@ -38,4 +38,8 @@
     <string name="bird_name">Bird name:</string>
     <string name="full_image_display_of_bird">full image display of bird</string>
     <string name="picture_of_edit_bird" />
+
+    <!-- TODO: ONLY USED TO TEST RECYCLERVIEW -->
+    <string name="birdName_1">Fossekall</string>
+    <string name="description_1">Cool bird!</string>
 </resources>
