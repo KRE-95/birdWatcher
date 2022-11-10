@@ -9,4 +9,5 @@
     <string name="time">Time:</string>
     <string name="bird">Bird:</string>
     <string name="write_down_the_name_bird">Write down the name bird.</string>
+    <string name="picture_of_edit_bird" />
 </resources>

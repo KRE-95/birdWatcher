@@ -35,4 +35,7 @@
     <string name="the_title_of_the_bird">The title of the bird</string>
     <string name="username">Username</string>
     <string name="datehint">MM.DD.YYYY</string>
+    <string name="bird_name">Bird name:</string>
+    <string name="full_image_display_of_bird">full image display of bird</string>
+    <string name="picture_of_edit_bird" />
 </resources>

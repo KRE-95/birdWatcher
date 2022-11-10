@@ -21,8 +21,8 @@
             android:layout_marginEnd="55dp"
             android:text="@string/place"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/userComment"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/description"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dateSwitch"
             app:layout_constraintVertical_bias="0.0" />
@@ -50,22 +50,22 @@
             android:contentDescription="@string/spinner_for_species_selection"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.102"
+            app:layout_constraintHorizontal_bias="0.147"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/userComment"
-            android:layout_width="192dp"
-            android:layout_height="285dp"
+            android:id="@+id/description"
+            android:layout_width="181dp"
+            android:layout_height="226dp"
             android:layout_marginStart="49dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:text="@string/usercomment"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.529"
             app:layout_constraintStart_toEndOf="@+id/speciesSpinner"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             app:layout_constraintVertical_bias="0.0" />
@@ -79,11 +79,11 @@
             android:layout_marginEnd="55dp"
             android:text="@string/date"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/userComment"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/description"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/speciesSpinner"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.009" />
 
         <Button
             android:id="@+id/saveEditButton"
@@ -100,7 +100,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userComment"
+            app:layout_constraintTop_toBottomOf="@+id/description"
 
             />
 
