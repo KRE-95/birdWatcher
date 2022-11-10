@@ -35,13 +35,13 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
   super.onViewCreated(view, savedInstanceState)
   galleryArrayList = arrayListOf()
   getDataFromFirestore()
+
   val layoutManager = LinearLayoutManager(context)
   recyclerView = view.findViewById(R.id.RecyclerView)
   recyclerView.layoutManager = layoutManager
   recyclerView.hasFixedSize()
   ourAdapter = GalleryRecyclerAdapter(galleryArrayList)
   recyclerView.adapter = ourAdapter
-
  }
 
  override fun onDestroyView() {
