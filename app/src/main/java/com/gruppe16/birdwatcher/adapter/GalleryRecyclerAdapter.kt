@@ -5,20 +5,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.imageview.ShapeableImageView
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.data.Listing
 
-class GalleryRecyclerAdapter (private val galleryListing : ArrayList<Listing> ): RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder>(){
+class GalleryRecyclerAdapter (
+    private val galleryListing : ArrayList<Listing>
+    ): RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val  itemView = LayoutInflater.from(parent.context).inflate(R.layout.gallery_list_item, parent, false)
+        val  itemView = LayoutInflater
+            .from(parent.context)
+            .inflate(R.layout.gallery_list_item, parent, false)
         return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = galleryListing[position]
+        val currentItem : Listing = galleryListing[position]
 
-      //  holder.picture.text = currentItem.picture
+        //holder.picture.text = currentItem.picture
         holder.birdName.text = currentItem.birdName
         holder.description.text = currentItem.description
 
