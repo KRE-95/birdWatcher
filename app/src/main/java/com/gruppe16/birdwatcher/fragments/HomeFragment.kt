@@ -1,4 +1,4 @@
-package com.gruppe16.birdwatcher
+package com.gruppe16.birdwatcher.fragments
 
 import android.Manifest
 import android.app.Activity
@@ -13,14 +13,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.components.CameraX
 import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.data.User
 import com.gruppe16.birdwatcher.databinding.FragmentHomeBinding
+import com.gruppe16.birdwatcher.viewmodels.HomeCreateViewModel
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,11 +35,12 @@ import java.util.concurrent.Executors
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-
+    private val viewModel: HomeCreateViewModel by viewModels()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var camera: CameraX
+    //private lateinit var pictureUri : String
     private  val listingCollectionRef = Firebase.firestore.collection("listings")
     private  val userCollectionRef = Firebase.firestore.collection("users")
 
@@ -53,27 +59,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             camera.startCamera()
         } else {
             ActivityCompat.requestPermissions(
-                activity as Activity, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
+                activity as Activity, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS
+            )
         }
 
-        //Testing that firebase works
-        //TODO: delete when done testing
-//        val newList = mutableListOf(2)
-//        val newUser = User("Anne Hansen", newList)
-//        saveUser(newUser)
-//
-//        val newListing = Listing(
-//            2,
-//            "Flycatcher",
-//            "https://firebasestorage.googleapis.com/v0/b/birdwatcher-3cf34.appspot.com/o/photos%2F2022-11-03-21-05-28-794?alt=media&token=10e5f211-e99d-4d1b-9648-264474c44c3b",
-//            "Cool bird",
-//            "Anne Hansen"
-//        )
-//        saveListing(newListing)
-
-        binding.captureBtnMain.setOnClickListener { camera.takePhoto(this,
-            binding
-        ) }
+        binding.captureBtnMain.setOnClickListener {
+            camera.takePhoto(this, binding)
+            Log.d(TAG, "1. HER: ${camera.pictureUri} OG HER: ${viewModel.pictureUri}")
+            viewModel.setPictureUri(camera.pictureUri)
+            Log.d(TAG, "2. HER: ${camera.pictureUri} OG HER: ${viewModel.pictureUri}")
+        }
         cameraExecutor = Executors.newSingleThreadExecutor()
     }
 
@@ -155,4 +150,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
     }
+
+    //Testing that firebase works
+    //TODO: delete when done testing
+//        val newList = mutableListOf(2)
+//        val newUser = User("Anne Hansen", newList)
+//        saveUser(newUser)
+//
+//        val newListing = Listing(
+//            2,
+//            "Flycatcher",
+//            "https://firebasestorage.googleapis.com/v0/b/birdwatcher-3cf34.appspot.com/o/photos%2F2022-11-03-21-05-28-794?alt=media&token=10e5f211-e99d-4d1b-9648-264474c44c3b",
+//            "Cool bird",
+//            "Anne Hansen"
+//        )
+//        saveListing(newListing)
 }
