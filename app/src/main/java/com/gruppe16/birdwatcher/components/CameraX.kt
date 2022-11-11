@@ -21,10 +21,17 @@ import java.util.*
 class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
     private var imageCapture: ImageCapture? = null
     private var TAG = "HomeFragment"
+    private val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
+    private val DATE_FORMAT = "dd.MM.yyyy"
     //private lateinit var _pictureUri : String
+
     private var _pictureUri : String = ""
     val pictureUri: String
         get() = _pictureUri
+
+    private var _date : String = ""
+    val date: String
+        get() = _date
 
 
     fun startCamera() {
@@ -58,9 +65,13 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
 
     fun takePhoto(fragment: HomeFragment, binding: FragmentHomeBinding) {
         val imageCapture = imageCapture ?: return
-
-        val name = SimpleDateFormat(HomeFragment.FILENAME_FORMAT, Locale.US)
+        val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
             .format(System.currentTimeMillis())
+        Log.d(TAG, "HER TID: ${name}")
+        val pictureDate = SimpleDateFormat(DATE_FORMAT, Locale.US)
+            .format(System.currentTimeMillis())
+        setDate("${pictureDate}")
+        Log.d(TAG, "HER TID: ${date}")
         val contentValues = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, name)
             put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
@@ -84,7 +95,7 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
                 ContextCompat.getMainExecutor(fragment.requireContext()),
                 object : ImageCapture.OnImageSavedCallback {
                     override fun onImageSaved(output: ImageCapture.OutputFileResults){
-                        setPictureUri(output.savedUri.toString())
+                        setPictureUri("${output.savedUri}")
                         val msg = "Photo capture succeeded: ${output.savedUri}"
                         Toast.makeText(fragment.context, msg, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, msg)
@@ -100,6 +111,10 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
                 }
             )
         }
+    }
+
+    private fun setDate(date: String) {
+        _date = date
     }
 
     fun setPictureUri(uri: String){

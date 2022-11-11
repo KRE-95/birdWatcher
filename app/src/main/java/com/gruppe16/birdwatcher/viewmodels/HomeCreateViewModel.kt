@@ -1,13 +1,21 @@
 package com.gruppe16.birdwatcher.viewmodels
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class HomeCreateViewModel : ViewModel() {
-    private var _pictureUri : String = "TEST"
-    val pictureUri: String
-        get() = _pictureUri
+    private val _pictureUri = MutableLiveData("")
+    val pictureUri: LiveData<String> = _pictureUri
+
+    private val _date = MutableLiveData("")
+    val date: LiveData<String> = _date
 
     fun setPictureUri(uri: String){
-        _pictureUri = uri
+        _pictureUri.value = uri
+    }
+
+    fun setDate(pictureDate: String){
+        _date.value = pictureDate
     }
 }

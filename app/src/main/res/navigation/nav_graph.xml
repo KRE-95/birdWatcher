@@ -40,7 +40,7 @@
         tools:layout="@layout/fragment_editselecteditem" />
     <fragment
         android:id="@+id/createItem"
-        android:name="com.gruppe16.birdwatcher.fragments.CreateItem"
+        android:name="com.gruppe16.birdwatcher.fragments.CreateItemFragement"
         android:label="fragment_create_item"
         tools:layout="@layout/fragment_create_item" >
         <action

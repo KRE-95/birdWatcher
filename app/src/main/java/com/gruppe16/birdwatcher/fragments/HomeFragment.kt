@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -35,7 +36,7 @@ import java.util.concurrent.Executors
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private val viewModel: HomeCreateViewModel by viewModels()
+    private val viewModel: HomeCreateViewModel by activityViewModels()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
@@ -54,6 +55,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         if (allPermissionsGranted()) {
             camera = CameraX(this, binding)
             camera.startCamera()
@@ -65,9 +67,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding.captureBtnMain.setOnClickListener {
             camera.takePhoto(this, binding)
-            Log.d(TAG, "1. HER: ${camera.pictureUri} OG HER: ${viewModel.pictureUri}")
-            viewModel.setPictureUri(camera.pictureUri)
-            Log.d(TAG, "2. HER: ${camera.pictureUri} OG HER: ${viewModel.pictureUri}")
+            viewModel.setPictureUri("${camera.pictureUri}")
+            viewModel.setDate("${camera.date}")
         }
         cameraExecutor = Executors.newSingleThreadExecutor()
     }
@@ -118,7 +119,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     companion object {
         private const val TAG = "birdWatcher"
-        const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS =
             mutableListOf (
