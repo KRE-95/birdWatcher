@@ -12,7 +12,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
-import com.gruppe16.birdwatcher.HomeFragment
+import com.gruppe16.birdwatcher.fragments.HomeFragment
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.databinding.FragmentHomeBinding
 import java.text.SimpleDateFormat
@@ -21,6 +21,18 @@ import java.util.*
 class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
     private var imageCapture: ImageCapture? = null
     private var TAG = "HomeFragment"
+    private val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
+    private val DATE_FORMAT = "dd.MM.yyyy"
+    //private lateinit var _pictureUri : String
+
+    private var _pictureUri : String = ""
+    val pictureUri: String
+        get() = _pictureUri
+
+    private var _date : String = ""
+    val date: String
+        get() = _date
+
 
     fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(fragment.requireContext())
@@ -53,9 +65,13 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
 
     fun takePhoto(fragment: HomeFragment, binding: FragmentHomeBinding) {
         val imageCapture = imageCapture ?: return
-
-        val name = SimpleDateFormat(HomeFragment.FILENAME_FORMAT, Locale.US)
+        val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
             .format(System.currentTimeMillis())
+        Log.d(TAG, "HER TID: ${name}")
+        val pictureDate = SimpleDateFormat(DATE_FORMAT, Locale.US)
+            .format(System.currentTimeMillis())
+        setDate("${pictureDate}")
+        Log.d(TAG, "HER TID: ${date}")
         val contentValues = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, name)
             put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
@@ -79,12 +95,13 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
                 ContextCompat.getMainExecutor(fragment.requireContext()),
                 object : ImageCapture.OnImageSavedCallback {
                     override fun onImageSaved(output: ImageCapture.OutputFileResults){
+                        setPictureUri("${output.savedUri}")
                         val msg = "Photo capture succeeded: ${output.savedUri}"
                         Toast.makeText(fragment.context, msg, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, msg)
                         binding.toListingBtn.text = "Make listing"
                         binding.toListingBtn.setOnClickListener {
-                            //.uploadPhotoToFirebase(name, output.savedUri)
+                            //uploadPhotoToFirebase(name, output.savedUri)
                             fragment.findNavController().navigate(R.id.action_homeFragment_to_createItem)
                         }
                     }
@@ -94,5 +111,13 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
                 }
             )
         }
+    }
+
+    private fun setDate(date: String) {
+        _date = date
+    }
+
+    fun setPictureUri(uri: String){
+        _pictureUri = uri
     }
 }
