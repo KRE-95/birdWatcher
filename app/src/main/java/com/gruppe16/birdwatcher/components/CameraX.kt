@@ -23,7 +23,6 @@ class CameraX(var fragment: HomeFragment, private var binding: FragmentHomeBindi
     private var TAG = "HomeFragment"
     private val FILENAMEFORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
     private val DATEFORMAT = "dd.MM.yyyy"
-    //private lateinit var _pictureUri : String
 
     private var _pictureUri : String = ""
     val pictureUri: String

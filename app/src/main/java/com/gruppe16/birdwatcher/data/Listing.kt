@@ -5,12 +5,11 @@ data class Listing (
 
     var birdName: String = "",
     var description: String = "",
-    var listingId: Int = 0,
+    //var listingId: Int = 0,
     var picture: String = "",
-//    var place: String = "",
-//    var time: String = "",
+    //var place: String = "",
+    var date: String = "",
     var user: String = ""
-
 )
 
 

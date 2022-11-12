@@ -38,8 +38,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var camera: CameraX
-    private  val listingCollectionRef = Firebase.firestore.collection("listings")
-    private  val userCollectionRef = Firebase.firestore.collection("users")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,52 +67,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         cameraExecutor = Executors.newSingleThreadExecutor()
     }
 
-    private fun uploadPhotoToFirebase(name: String, selectedPhotoUri: Uri?) {
-        val storage = FirebaseStorage.getInstance().getReference("/photos/$name")
-
-        storage.putFile(selectedPhotoUri!!)
-            .addOnCanceledListener {
-                Log.d(TAG, "Successfully uploaded photo.")
-
-                storage.downloadUrl.addOnSuccessListener {
-                    Log.d(TAG, "URL: $it")
-                }
-            }
-    }
-
-    protected fun saveUser(user: User)  = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            userCollectionRef.add(user)
-            withContext(Dispatchers.Main) {
-                Toast.makeText(this@HomeFragment.requireContext(), "Saved data", Toast.LENGTH_LONG).show()
-            }
-        } catch(e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(this@HomeFragment.requireContext(), e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
-    private fun saveListing(listing: Listing)  = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            listingCollectionRef.add(listing)
-            withContext(Dispatchers.Main) {
-                Toast.makeText(this@HomeFragment.requireContext(), "Saved data", Toast.LENGTH_LONG).show()
-            }
-        } catch(e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(this@HomeFragment.requireContext(), e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         cameraExecutor.shutdown()
     }
 
     companion object {
-        private const val TAG = "birdWatcher"
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS =
             mutableListOf (
