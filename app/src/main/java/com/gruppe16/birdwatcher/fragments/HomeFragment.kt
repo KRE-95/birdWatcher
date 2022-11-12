@@ -13,10 +13,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -26,7 +24,6 @@ import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.data.User
 import com.gruppe16.birdwatcher.databinding.FragmentHomeBinding
 import com.gruppe16.birdwatcher.viewmodels.HomeCreateViewModel
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,7 +38,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var camera: CameraX
-    //private lateinit var pictureUri : String
     private  val listingCollectionRef = Firebase.firestore.collection("listings")
     private  val userCollectionRef = Firebase.firestore.collection("users")
 
@@ -67,8 +63,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding.captureBtnMain.setOnClickListener {
             camera.takePhoto(this, binding)
-            viewModel.setPictureUri("${camera.pictureUri}")
-            viewModel.setDate("${camera.date}")
+            viewModel.setPictureUri(camera.pictureUri)
+            viewModel.setDate(camera.date)
         }
         cameraExecutor = Executors.newSingleThreadExecutor()
     }

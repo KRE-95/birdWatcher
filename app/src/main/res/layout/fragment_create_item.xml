@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.CreateItemFragement">
+    tools:context=".fragments.CreateItemFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -41,20 +41,19 @@
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-
-
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/editTextDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:hint="@string/datehint"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
-        </TextView>
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"/>
+
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etDescription"
             android:layout_width="171dp"
             android:layout_height="126dp"
             android:layout_marginEnd="56dp"
@@ -68,7 +67,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/description" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

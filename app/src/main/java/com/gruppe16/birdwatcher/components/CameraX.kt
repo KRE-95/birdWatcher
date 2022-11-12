@@ -18,11 +18,11 @@ import com.gruppe16.birdwatcher.databinding.FragmentHomeBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
+class CameraX(var fragment: HomeFragment, private var binding: FragmentHomeBinding) {
     private var imageCapture: ImageCapture? = null
     private var TAG = "HomeFragment"
-    private val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
-    private val DATE_FORMAT = "dd.MM.yyyy"
+    private val FILENAMEFORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
+    private val DATEFORMAT = "dd.MM.yyyy"
     //private lateinit var _pictureUri : String
 
     private var _pictureUri : String = ""
@@ -65,13 +65,11 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
 
     fun takePhoto(fragment: HomeFragment, binding: FragmentHomeBinding) {
         val imageCapture = imageCapture ?: return
-        val name = SimpleDateFormat(FILENAME_FORMAT, Locale.US)
+        val name = SimpleDateFormat(FILENAMEFORMAT, Locale.US)
             .format(System.currentTimeMillis())
-        Log.d(TAG, "HER TID: ${name}")
-        val pictureDate = SimpleDateFormat(DATE_FORMAT, Locale.US)
+        val pictureDate = SimpleDateFormat(DATEFORMAT, Locale.US)
             .format(System.currentTimeMillis())
-        setDate("${pictureDate}")
-        Log.d(TAG, "HER TID: ${date}")
+        setDate(pictureDate)
         val contentValues = ContentValues().apply {
             put(MediaStore.MediaColumns.DISPLAY_NAME, name)
             put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
@@ -89,7 +87,7 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
         }
 
         if (outputOptions != null) {
-            Log.d(TAG,"Photo output: ${outputOptions}")
+            Log.d(TAG,"Photo output: $outputOptions")
             imageCapture.takePicture(
                 outputOptions,
                 ContextCompat.getMainExecutor(fragment.requireContext()),
@@ -101,7 +99,6 @@ class CameraX(var fragment: HomeFragment, var binding: FragmentHomeBinding) {
                         Log.d(TAG, msg)
                         binding.toListingBtn.text = "Make listing"
                         binding.toListingBtn.setOnClickListener {
-                            //uploadPhotoToFirebase(name, output.savedUri)
                             fragment.findNavController().navigate(R.id.action_homeFragment_to_createItem)
                         }
                     }
