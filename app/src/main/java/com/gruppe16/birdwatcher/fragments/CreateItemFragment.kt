@@ -41,9 +41,7 @@ class CreateItemFragment : Fragment() {
         db = FirebaseDatabase()
         super.onViewCreated(view, savedInstanceState)
         val pictureUri = viewModel.pictureUri.value?.toUri()
-        val userName = binding.etUser.editText?.text
-        val description = binding.etDescription.editText?.text
-        val date = viewModel.date.value
+        val date = viewModel.date.value.toString()
         binding.imageView2.setImageURI(pictureUri)
         binding.editTextDate.setText(date)
         binding.button.setOnClickListener {
@@ -51,8 +49,10 @@ class CreateItemFragment : Fragment() {
             db.uploadPhotoToFirebase(pictureId, pictureUri)
         }
         binding.saveListing.setOnClickListener {
-
-            val listingToSave = Listing("TODO", description.toString(), db.pictureUrl!!, date.toString(), userName.toString())
+            val userName = binding.etUser.editText?.text.toString()
+            val description = binding.etDescription.editText?.text.toString()
+            val listingToSave = Listing("TODO", description, db.pictureUrl!!, date, userName)
+            db.saveListing(listingToSave, this)
             Log.d("CREATE", "LISTING: ${listingToSave.picture} og ${listingToSave.description}")
             findNavController().navigate(R.id.action_createItem_to_homeFragment)
         }

@@ -2,6 +2,8 @@ package com.gruppe16.birdwatcher.components
 
 import android.net.Uri
 import android.util.Log
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -34,15 +36,15 @@ class FirebaseDatabase {
         }
     }
 
-    private fun saveListing(listing: Listing)  = CoroutineScope(Dispatchers.IO).launch {
+    fun saveListing(listing: Listing, fragment: Fragment)  = CoroutineScope(Dispatchers.IO).launch {
         try {
             listingCollectionRef.add(listing)
             withContext(Dispatchers.Main) {
-                //Toast.makeText(this@HomeFragment.requireContext(), "Saved data", Toast.LENGTH_LONG).show()
+                Toast.makeText(fragment.requireContext(), "Saved data", Toast.LENGTH_LONG).show()
             }
         } catch(e: Exception) {
             withContext(Dispatchers.Main) {
-                //Toast.makeText(this@HomeFragment.requireContext(), e.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(fragment.requireContext(), e.message, Toast.LENGTH_LONG).show()
             }
         }
     }
