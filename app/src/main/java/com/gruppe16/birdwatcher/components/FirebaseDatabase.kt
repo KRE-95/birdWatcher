@@ -19,6 +19,7 @@ class FirebaseDatabase {
     private  val listingCollectionRef = Firebase.firestore.collection("listings")
     private  val userCollectionRef = Firebase.firestore.collection("users")
 
+
     private var _pictureUrl : String? = null
     val pictureUrl: String?
         get() = _pictureUrl
@@ -49,10 +50,9 @@ class FirebaseDatabase {
         }
     }
 
-    fun uploadPhotoToFirebase(name: String, selectedPhotoUri: Uri?) {
+    fun uploadPhotoToFirebase(id: String, selectedPhotoUri: Uri?) {
         setPictureUrl(null)
-        val storage = FirebaseStorage.getInstance().getReference("/photos/$name")
-
+        val storage = FirebaseStorage.getInstance().getReference("/photos/$id")
         storage.putFile(selectedPhotoUri!!)
             .addOnCompleteListener() {
                 Log.d("CREATE", "Successfully uploaded photo.")
@@ -63,6 +63,13 @@ class FirebaseDatabase {
                     Log.d("CREATE", "PICTURE URL $pictureUrl")
                 }
             }
+    }
+
+    fun deletePhotoFromFirebase(id: String) {
+        val storage = FirebaseStorage.getInstance().getReference("/photos/$id")
+        storage.delete().addOnSuccessListener {
+            Log.d("DELETE", "Picture deleted from storage")
+        }
     }
 
     private fun setPictureUrl(url: String?){

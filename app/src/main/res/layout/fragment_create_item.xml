@@ -48,6 +48,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:text="Change - TODO"
+            android:textColor="#6D4C41"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etUser"
+            android:layout_width="150dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/username"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/editTextDate"
             android:layout_width="0dp"
@@ -80,39 +107,23 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="32dp"
+            android:enabled="false"
             android:text="@string/save"
             android:textColor="#6D4C41"
-            android:enabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etUser"
-            android:layout_width="150dp"
-            android:layout_height="57dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/username"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/cancelListing"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:text="Change - TODO"
+            android:layout_marginBottom="32dp"
+            android:text="Cancel"
             android:textColor="#6D4C41"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

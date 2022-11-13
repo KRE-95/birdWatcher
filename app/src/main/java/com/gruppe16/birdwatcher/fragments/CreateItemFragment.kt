@@ -42,13 +42,19 @@ class CreateItemFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val pictureUri = viewModel.pictureUri.value?.toUri()
         val date = viewModel.date.value.toString()
+        val pictureId = UUID.randomUUID().toString()
         binding.imageView2.setImageURI(pictureUri)
         binding.editTextDate.setText(date)
+
         binding.button.setOnClickListener {
-            val pictureId = UUID.randomUUID().toString()
             db.uploadPhotoToFirebase(pictureId, pictureUri)
             binding.saveListing.isEnabled = true
         }
+
+        binding.cancelListing.setOnClickListener {
+            db.deletePhotoFromFirebase(pictureId)
+        }
+
         binding.saveListing.setOnClickListener {
             val userName = binding.etUser.editText?.text.toString()
             val description = binding.etDescription.editText?.text.toString()
