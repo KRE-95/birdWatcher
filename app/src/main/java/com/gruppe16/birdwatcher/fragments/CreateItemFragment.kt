@@ -52,7 +52,10 @@ class CreateItemFragment : Fragment() {
         }
 
         binding.cancelListing.setOnClickListener {
-            db.deletePhotoFromFirebase(pictureId)
+            if (db.pictureUrl == null) {
+                db.deletePhotoFromFirebase(pictureId)
+            }
+            findNavController().navigate(R.id.action_createItem_to_homeFragment)
         }
 
         binding.saveListing.setOnClickListener {
