@@ -14,6 +14,9 @@ import com.gruppe16.birdwatcher.components.FirebaseDatabase
 import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.databinding.FragmentCreateItemBinding
 import com.gruppe16.birdwatcher.viewmodels.HomeCreateViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.util.UUID
 
 
@@ -23,7 +26,6 @@ class CreateItemFragment : Fragment() {
     private var _binding: FragmentCreateItemBinding? = null
     private val binding get() = _binding!!
     private lateinit var db : FirebaseDatabase
-
 
 
     override fun onCreateView(
@@ -39,15 +41,18 @@ class CreateItemFragment : Fragment() {
         db = FirebaseDatabase()
         super.onViewCreated(view, savedInstanceState)
         val pictureUri = viewModel.pictureUri.value?.toUri()
-        val userName = binding.textInputLayout.editText?.text
+        val userName = binding.etUser.editText?.text
         val description = binding.etDescription.editText?.text
         val date = viewModel.date.value
         binding.imageView2.setImageURI(pictureUri)
         binding.editTextDate.setText(date)
-        binding.saveListing.setOnClickListener {
+        binding.button.setOnClickListener {
             val pictureId = UUID.randomUUID().toString()
-            db.uploadPhotoToFirebase(pictureId, pictureUri, this)
-            val listingToSave = Listing("TODO", description.toString(), db.pictureUrl, date.toString(), userName.toString())
+            db.uploadPhotoToFirebase(pictureId, pictureUri)
+        }
+        binding.saveListing.setOnClickListener {
+
+            val listingToSave = Listing("TODO", description.toString(), db.pictureUrl!!, date.toString(), userName.toString())
             Log.d("CREATE", "LISTING: ${listingToSave.picture} og ${listingToSave.description}")
             findNavController().navigate(R.id.action_createItem_to_homeFragment)
         }

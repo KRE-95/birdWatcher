@@ -25,46 +25,42 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.079" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="0dp"
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:text="Save picture"
+            android:textColor="#6D4C41"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="121dp"
-                android:layout_height="match_parent"
-                android:hint="@string/username"
-                android:inputType="text"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/editTextDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:hint="@string/datehint"
+            android:textColorHint="#757575"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"/>
-
+            app:layout_constraintTop_toBottomOf="@+id/etUser" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etDescription"
             android:layout_width="171dp"
             android:layout_height="126dp"
-            android:layout_marginEnd="56dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:inputType="textLongMessage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.042"
-            android:inputType="textLongMessage">
+            app:layout_constraintTop_toBottomOf="@+id/button2">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+                android:layout_width="171dp"
                 android:layout_height="match_parent"
                 android:hint="@string/description" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -80,6 +76,31 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etUser"
+            android:layout_width="139dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/username"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:text="Change picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -2,7 +2,6 @@ package com.gruppe16.birdwatcher.components
 
 import android.net.Uri
 import android.util.Log
-import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -14,11 +13,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class FirebaseDatabase {
+
     private  val listingCollectionRef = Firebase.firestore.collection("listings")
     private  val userCollectionRef = Firebase.firestore.collection("users")
 
-    private var _pictureUrl : String = ""
-    val pictureUrl: String
+    private var _pictureUrl : String? = null
+    val pictureUrl: String?
         get() = _pictureUrl
 
     protected fun saveUser(user: User)  = CoroutineScope(Dispatchers.IO).launch {
@@ -47,21 +47,23 @@ class FirebaseDatabase {
         }
     }
 
-    fun uploadPhotoToFirebase(name: String, selectedPhotoUri: Uri?, fragment: Fragment) {
+    fun uploadPhotoToFirebase(name: String, selectedPhotoUri: Uri?) {
+        setPictureUrl(null)
         val storage = FirebaseStorage.getInstance().getReference("/photos/$name")
 
         storage.putFile(selectedPhotoUri!!)
             .addOnCompleteListener() {
-                Log.d(fragment.tag, "Successfully uploaded photo.")
+                Log.d("CREATE", "Successfully uploaded photo.")
 
                 storage.downloadUrl.addOnSuccessListener {
-                    Log.d(fragment.tag, "URL: $it")
+                    Log.d("CREATE", "URL: $it")
                     setPictureUrl(it.toString())
+                    Log.d("CREATE", "PICTURE URL $pictureUrl")
                 }
             }
     }
 
-    private fun setPictureUrl(url: String){
+    private fun setPictureUrl(url: String?){
         _pictureUrl = url
     }
 }

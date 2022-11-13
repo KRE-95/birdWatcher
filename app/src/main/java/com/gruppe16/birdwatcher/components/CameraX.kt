@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class CameraX(var fragment: HomeFragment, private var binding: FragmentHomeBinding) {
+
     private var imageCapture: ImageCapture? = null
     private var TAG = "HomeFragment"
     private val FILENAMEFORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
