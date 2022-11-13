@@ -47,6 +47,7 @@ class CreateItemFragment : Fragment() {
         binding.button.setOnClickListener {
             val pictureId = UUID.randomUUID().toString()
             db.uploadPhotoToFirebase(pictureId, pictureUri)
+            binding.saveListing.isEnabled = true
         }
         binding.saveListing.setOnClickListener {
             val userName = binding.etUser.editText?.text.toString()

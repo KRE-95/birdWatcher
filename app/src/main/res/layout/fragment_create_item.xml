@@ -10,25 +10,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/choosepic"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="351dp"
             android:layout_height="201dp"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:contentDescription="@string/picture_of_selected_bird"
             android:src="@drawable/fossekallmain"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.079" />
-
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
@@ -51,7 +61,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etDescription"
-            android:layout_width="171dp"
+            android:layout_width="150dp"
             android:layout_height="126dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
@@ -60,25 +70,26 @@
             app:layout_constraintTop_toBottomOf="@+id/button2">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="171dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/description" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/saveListing"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="32dp"
             android:layout_marginBottom="16dp"
             android:text="@string/save"
             android:textColor="#6D4C41"
+            android:enabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etUser"
-            android:layout_width="139dp"
+            android:layout_width="150dp"
             android:layout_height="57dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
@@ -89,16 +100,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/username"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:text="Change picture"
+            android:text="Change - TODO"
+            android:textColor="#6D4C41"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
