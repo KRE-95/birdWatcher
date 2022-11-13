@@ -50,7 +50,7 @@ class FirebaseDatabase {
         }
     }
 
-    fun uploadPhotoToFirebase(id: String, selectedPhotoUri: Uri?) {
+    fun uploadPhotoToStorage(id: String, selectedPhotoUri: Uri?) {
         setPictureUrl(null)
         val storage = FirebaseStorage.getInstance().getReference("/photos/$id")
         storage.putFile(selectedPhotoUri!!)
@@ -65,7 +65,7 @@ class FirebaseDatabase {
             }
     }
 
-    fun deletePhotoFromFirebase(id: String) {
+    fun deletePhotoFromStorage(id: String) {
         val storage = FirebaseStorage.getInstance().getReference("/photos/$id")
         storage.delete().addOnSuccessListener {
             Log.d("DELETE", "Picture deleted from storage")

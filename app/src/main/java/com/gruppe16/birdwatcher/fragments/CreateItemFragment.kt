@@ -7,17 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.components.FirebaseDatabase
 import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.databinding.FragmentCreateItemBinding
 import com.gruppe16.birdwatcher.viewmodels.HomeCreateViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import java.util.UUID
+import java.util.*
 
 
 class CreateItemFragment : Fragment() {
@@ -47,13 +44,13 @@ class CreateItemFragment : Fragment() {
         binding.editTextDate.setText(date)
 
         binding.button.setOnClickListener {
-            db.uploadPhotoToFirebase(pictureId, pictureUri)
+            db.uploadPhotoToStorage(pictureId, pictureUri)
             binding.saveListing.isEnabled = true
         }
 
         binding.cancelListing.setOnClickListener {
             if (db.pictureUrl == null) {
-                db.deletePhotoFromFirebase(pictureId)
+                db.deletePhotoFromStorage(pictureId)
             }
             findNavController().navigate(R.id.action_createItem_to_homeFragment)
         }
