@@ -10,7 +10,8 @@
     app:contentPadding="10dp"
     android:padding="@dimen/cardview_compat_inset_shadow"
     app:flow_horizontalGap="@dimen/cardview_compat_inset_shadow"
-    app:flow_verticalGap="@dimen/cardview_compat_inset_shadow">
+    app:flow_verticalGap="@dimen/cardview_compat_inset_shadow"
+    android:id="@+id/cardView_galleryItems">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
