@@ -5,11 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.imageview.ShapeableImageView
+import com.bumptech.glide.Glide
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.data.Listing
 
+
+
 class GalleryRecyclerAdapter (
+
     private val galleryListing : ArrayList<Listing>
     ): RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder>() {
 
@@ -23,7 +26,7 @@ class GalleryRecyclerAdapter (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem : Listing = galleryListing[position]
 
-        //holder.picture.text = currentItem.picture
+        Glide.with(holder.itemView).load(galleryListing[position].picture).into(holder.itemView.findViewById(R.id.ImageV_Display_Gallery))
         holder.birdName.text = currentItem.birdName
         holder.description.text = currentItem.description
 
@@ -38,7 +41,7 @@ class GalleryRecyclerAdapter (
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
      // gallery_list + listing
 
-        //val picture: ShapeableImageView = itemView.findViewById(R.id.ImageV_Display_Gallery) //TODO: see if you can rework the view to have this as a textview and just use string?
+        //val picture: ImageView = itemView.findViewById(R.id.ImageV_Display_Gallery) //TODO: This is not needed.
         val birdName: TextView = itemView.findViewById(R.id.tV_BirdName)
         val description: TextView = itemView.findViewById(R.id.tV_Description_Gallery)
 
