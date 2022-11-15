@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.data.Listing
-
+import androidx.navigation.fragment.findNavController
 
 
 class GalleryRecyclerAdapter (
@@ -30,6 +30,14 @@ class GalleryRecyclerAdapter (
         holder.birdName.text = currentItem.birdName
         holder.user.text=currentItem.user
         //holder.description.text = currentItem.description
+
+        // Navigasjon fra galleri til valgt oppføring
+        holder.itemView.setOnClickListener{
+            //TODO: FOR TESTING
+            println("******************************************************")
+            println("NAVIGATE TO FRAGMENT HERE?")
+            println("******************************************************")
+        }
 
     //TODO: Flere ting legges til her ettersom vi får mer data på plass for listing
 
