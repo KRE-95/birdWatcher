@@ -45,4 +45,5 @@
     <string name="choosepic">Choose your picture</string>
     <string name="Taken_by_user" />
     <string name="by">By:</string>
+    <string name="describe">Describe:</string>
 </resources>
