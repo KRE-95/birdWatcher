@@ -45,4 +45,6 @@
     <string name="choosepic">Choose your picture</string>
     <string name="Taken_by_user" />
     <string name="by">By:</string>
+    <string name="to_cancel">To cancel</string>
+    <string name="to_save_the_listing">To save the listing</string>
 </resources>
