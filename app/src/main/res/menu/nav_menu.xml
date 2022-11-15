@@ -23,13 +23,4 @@
         >
     </item>
 
-    <item
-        android:id="@+id/searchFragment"
-        android:title="@string/search"
-        android:icon="@drawable/ic_round_image_search_24"
-        >
-    </item>
-
-
-
 </menu>
