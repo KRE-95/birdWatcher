@@ -16,6 +16,8 @@ class GalleryRecyclerAdapter (
     private val galleryListing : ArrayList<Listing>
     ): RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder>() {
 
+    var onItemClick : ((Listing) -> Unit)? = null;
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val  itemView = LayoutInflater
             .from(parent.context)
@@ -28,8 +30,9 @@ class GalleryRecyclerAdapter (
 
         Glide.with(holder.itemView).load(galleryListing[position].picture).into(holder.itemView.findViewById(R.id.ImageV_Display_Gallery))
         holder.birdName.text = currentItem.birdName
-        holder.description.text = currentItem.description
-
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(currentItem)
+        }
     //TODO: Flere ting legges til her ettersom vi får mer data på plass for listing
 
     }
@@ -43,7 +46,6 @@ class GalleryRecyclerAdapter (
 
         //val picture: ImageView = itemView.findViewById(R.id.ImageV_Display_Gallery) //TODO: This is not needed.
         val birdName: TextView = itemView.findViewById(R.id.tV_BirdName)
-        val description: TextView = itemView.findViewById(R.id.tV_Description_Gallery)
 
         //TODO: Flere ting legges til her ettersom vi får mer data på plass for listing
 
