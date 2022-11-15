@@ -47,7 +47,26 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.172" />
 
+        <!-- Taken by has to init in DB -->
         <TextView
+            android:id="@+id/tV_TakenBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:padding="2dp"
+            android:contentDescription="@string/Taken_by_user"
+            android:text="@string/by"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
+            app:layout_constraintTop_toTopOf="@+id/tV_BirdName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <!-- Description and place will be used in selectec view/edit , for now it is an commented
+
+            <TextView
             android:id="@+id/tV_Description_Gallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,9 +79,7 @@
             app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
             app:layout_constraintTop_toTopOf="@+id/tV_BirdName" />
 
-        <!-- undo when DB is on place
-
-         <TextView
+        <TextView
             android:id="@+id/tV_Place_Gallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,19 +91,12 @@
             app:layout_constraintStart_toStartOf="@+id/ImageV_Display_Gallery"
             app:layout_constraintTop_toTopOf="@+id/tV_Description_Gallery" />
 
-        <TextView
-            android:id="@+id/tV_Time_Gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="176dp"
-            android:layout_marginTop="28dp"
-            android:contentDescription="@string/when_picture_was_taken"
-            android:text="@string/time"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/ImageV_Display_Gallery"
-            app:layout_constraintTop_toTopOf="@+id/tV_Place_Gallery"
-            app:layout_constraintVertical_bias="0.0" /> -->
+
+            -->
+
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

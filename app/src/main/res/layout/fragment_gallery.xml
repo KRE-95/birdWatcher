@@ -10,6 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- skal tas med i fragment filen  -->
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="276dp"
+            android:layout_height="51dp"
+            android:layout_margin="8dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/search_view_bc"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search Here ..."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!-- skal tas med i fragment filen -->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RecyclerView"
             android:layout_width="300dp"
@@ -18,7 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
             tools:listitem="@layout/gallery_list_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

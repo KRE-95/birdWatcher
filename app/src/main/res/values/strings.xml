@@ -43,4 +43,6 @@
     <string name="birdName_1">Fossekall</string>
     <string name="description_1">Cool bird!</string>
     <string name="choosepic">Choose your picture</string>
+    <string name="Taken_by_user" />
+    <string name="by">By:</string>
 </resources>
