@@ -1,9 +1,12 @@
 package com.gruppe16.birdwatcher.components
 
+import android.content.ContentValues
 import android.net.Uri
 import android.util.Log
+import android.widget.Adapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -16,8 +19,8 @@ import kotlinx.coroutines.withContext
 
 class FirebaseDatabase {
 
-    private  val listingCollectionRef = Firebase.firestore.collection("listings")
-    private  val userCollectionRef = Firebase.firestore.collection("users")
+    private val listingCollectionRef = Firebase.firestore.collection("listings")
+    private val userCollectionRef = Firebase.firestore.collection("users")
 
 
     private var _pictureUrl : String? = null
@@ -63,6 +66,28 @@ class FirebaseDatabase {
                     Log.d("CREATE", "PICTURE URL $pictureUrl")
                 }
             }
+    }
+
+    fun getDataFromFirestore(adapter: Adapter): ArrayList<Listing>{
+
+        val db = FirebaseFirestore.getInstance()
+        val list = ArrayList<Listing>()
+        db.collection("listings")//TODO Add query to sort by descending?
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    for (document in task.result) {
+                        Log.d(ContentValues.TAG, document.id + " => " + document.data)
+
+                        //For hvert leste objekt legges det til i lokal lagring
+                        val newObject = document.toObject(Listing::class.java)
+                        list.add(newObject)
+                    }
+                } else {
+                    Log.w(ContentValues.TAG, "Error getting documents.", task.exception)
+                }
+            }
+        return list
     }
 
     fun deletePhotoFromStorage(id: String) {
