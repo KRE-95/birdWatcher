@@ -107,19 +107,4 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
     }
-
-    //Testing that firebase works
-    //TODO: delete when done testing
-//        val newList = mutableListOf(2)
-//        val newUser = User("Anne Hansen", newList)
-//        saveUser(newUser)
-//
-//        val newListing = Listing(
-//            2,
-//            "Flycatcher",
-//            "https://firebasestorage.googleapis.com/v0/b/birdwatcher-3cf34.appspot.com/o/photos%2F2022-11-03-21-05-28-794?alt=media&token=10e5f211-e99d-4d1b-9648-264474c44c3b",
-//            "Cool bird",
-//            "Anne Hansen"
-//        )
-//        saveListing(newListing)
 }
