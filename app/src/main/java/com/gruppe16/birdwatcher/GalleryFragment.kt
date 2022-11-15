@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
@@ -14,7 +15,6 @@ import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.databinding.FragmentGalleryBinding
 
 class GalleryFragment : Fragment(R.layout.fragment_gallery) {
-
  private var _binding : FragmentGalleryBinding? = null
  private val binding get() = _binding!!
  private lateinit var ourAdapter: GalleryRecyclerAdapter
@@ -42,6 +42,10 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
   recyclerView.hasFixedSize()
   ourAdapter = GalleryRecyclerAdapter(galleryArrayList)
   recyclerView.adapter = ourAdapter
+
+  ourAdapter.onItemClick = {
+   findNavController().navigate(R.id.action_galleryFragment_to_selectedItemFragment)
+  }
  }
 
  override fun onDestroyView() {
@@ -63,11 +67,6 @@ private fun getDataFromFirestore(){
      //For hvert leste objekt legges det til i lokal lagring
      val newObject = document.toObject(Listing::class.java)
      galleryArrayList.add(newObject)
-
-     //TODO: FOR TESTING
-     println("******************************************************")
-     println("${newObject.birdName}, HER: ${galleryArrayList[0].description}")
-     println("******************************************************")
     }
     ourAdapter.notifyDataSetChanged()
    } else {

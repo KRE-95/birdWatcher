@@ -18,7 +18,11 @@
         android:id="@+id/galleryFragment"
         android:name="com.gruppe16.birdwatcher.GalleryFragment"
         android:label="fragment_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_galleryFragment_to_selectedItemFragment"
+            app:destination="@id/selectedItemFragment" />
+    </fragment>
     <fragment
         android:id="@+id/globalFragment"
         android:name="com.gruppe16.birdwatcher.GlobalFragment"
