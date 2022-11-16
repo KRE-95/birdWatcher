@@ -46,15 +46,6 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery), GalleryRecyclerAdap
   recyclerView.hasFixedSize()
   ourAdapter = GalleryRecyclerAdapter(galleryArrayList, this)
   recyclerView.adapter = ourAdapter
-
-//  ourAdapter.onItemClick = {
-//   ourAdapter.currentItem?.birdName?.let { birdName -> viewModel.setBirdName(birdName) }
-//   ourAdapter.currentItem?.description?.let { description -> viewModel.setDescription(description) }
-//   ourAdapter.currentItem?.picture?.let { picture -> viewModel.setPicture(picture) }
-//   ourAdapter.currentItem?.date?.let { date -> viewModel.setDate(date) }
-//   ourAdapter.currentItem?.user?.let { user -> viewModel.setUser(user) }
-//   findNavController().navigate(R.id.action_galleryFragment_to_selectedItemFragment)
-//  }
  }
 
  override fun onDestroyView() {
