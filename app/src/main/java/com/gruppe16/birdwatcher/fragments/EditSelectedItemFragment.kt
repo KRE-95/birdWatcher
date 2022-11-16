@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.databinding.FragmentEditselecteditemBinding
 import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 
@@ -30,8 +32,7 @@ class EditSelectedItemFragment : Fragment() {
 
         binding.saveEditButton.setOnClickListener{
             // TODO: call saveEdits
-        // TODO: go to selectedItem Activity
-
+        findNavController().navigate(R.id.action_editSelectedItemFragment_to_selectedItemFragment)
         }
     }
 

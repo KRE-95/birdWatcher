@@ -50,6 +50,9 @@
         android:name="com.gruppe16.birdwatcher.fragments.EditSelectedItemFragment"
         android:label="fragment_editselecteditem"
         tools:layout="@layout/fragment_editselecteditem">
+        <action
+            android:id="@+id/action_editSelectedItemFragment_to_selectedItemFragment"
+            app:destination="@id/selectedItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/createItem"
