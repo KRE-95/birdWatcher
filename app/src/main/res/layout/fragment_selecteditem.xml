@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectedItemFragment"
+    tools:context=".fragments.SelectedItemFragment"
     android:layout_margin="5dp"
     >
 
@@ -48,24 +48,24 @@
             android:layout_width="203dp"
             android:layout_height="33dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="monospace"
             android:text="@string/bird"
             android:textColor="@color/black"
-            android:fontFamily="monospace"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.567"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <TextView
-            android:id="@+id/Place"
+            android:id="@+id/place"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="106dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="106dp"
-            android:text="@string/location"
             android:contentDescription="@string/show_which_location"
             android:fontFamily="monospace"
+            android:text="@string/location"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -73,21 +73,21 @@
             app:layout_constraintTop_toBottomOf="@+id/birdName" />
 
         <TextView
-            android:id="@+id/Date"
+            android:id="@+id/date"
             android:layout_width="197dp"
             android:layout_height="46dp"
             android:layout_marginStart="106dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="106dp"
+            android:contentDescription="@string/show_the_date_when_taken_picture"
+            android:fontFamily="monospace"
             android:text="@string/date"
             android:textColor="@color/black"
-            android:fontFamily="monospace"
-            android:contentDescription="@string/show_the_date_when_taken_picture"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Place"
+            app:layout_constraintTop_toBottomOf="@+id/place"
             app:layout_constraintVertical_bias="0.038" />
 
         <TextView
@@ -95,33 +95,51 @@
             android:layout_width="206dp"
             android:layout_height="153dp"
             android:layout_marginStart="106dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="105dp"
+            android:contentDescription="@string/show_few_details_about_bird"
+            android:fontFamily="monospace"
             android:text="@string/description"
             android:textColor="@color/black"
-            android:fontFamily="monospace"
-            android:contentDescription="@string/show_few_details_about_bird"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Date"
+            app:layout_constraintTop_toBottomOf="@+id/date"
             app:layout_constraintVertical_bias="0.082" />
 
         <Button
             android:id="@+id/editSelectedItemButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@color/second_Lt_green"
+            android:contentDescription="@string/shows_option_for_editing"
             android:text="@string/edit"
             android:textColor="@color/black"
-            android:contentDescription="@string/shows_option_for_editing"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.532"
+            app:layout_constraintEnd_toStartOf="@+id/backButton"
+            app:layout_constraintHorizontal_bias="0.611"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description"
-            app:layout_constraintVertical_bias="0.513"
-            />
+            app:layout_constraintVertical_bias="0.25" />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="68dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/second_Lt_green"
+            android:contentDescription="@string/shows_option_for_editing"
+            android:text="@string/back"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintVertical_bias="0.354" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

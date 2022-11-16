@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,8 +15,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.gruppe16.birdwatcher.adapter.GalleryRecyclerAdapter
 import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.databinding.FragmentGalleryBinding
+import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 
-class GalleryFragment : Fragment(R.layout.fragment_gallery) {
+class GalleryFragment : Fragment(R.layout.fragment_gallery), GalleryRecyclerAdapter.OnListingClickedListener {
+ private val viewModel: SharedViewModel by activityViewModels()
  private var _binding : FragmentGalleryBinding? = null
  private val binding get() = _binding!!
  private lateinit var ourAdapter: GalleryRecyclerAdapter
@@ -40,12 +44,17 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
   recyclerView = view.findViewById(R.id.RecyclerView)
   recyclerView.layoutManager = layoutManager
   recyclerView.hasFixedSize()
-  ourAdapter = GalleryRecyclerAdapter(galleryArrayList)
+  ourAdapter = GalleryRecyclerAdapter(galleryArrayList, this)
   recyclerView.adapter = ourAdapter
 
-  ourAdapter.onItemClick = {
-   findNavController().navigate(R.id.action_galleryFragment_to_selectedItemFragment)
-  }
+//  ourAdapter.onItemClick = {
+//   ourAdapter.currentItem?.birdName?.let { birdName -> viewModel.setBirdName(birdName) }
+//   ourAdapter.currentItem?.description?.let { description -> viewModel.setDescription(description) }
+//   ourAdapter.currentItem?.picture?.let { picture -> viewModel.setPicture(picture) }
+//   ourAdapter.currentItem?.date?.let { date -> viewModel.setDate(date) }
+//   ourAdapter.currentItem?.user?.let { user -> viewModel.setUser(user) }
+//   findNavController().navigate(R.id.action_galleryFragment_to_selectedItemFragment)
+//  }
  }
 
  override fun onDestroyView() {
@@ -74,6 +83,18 @@ private fun getDataFromFirestore(){
    }
   }
 }
+
+ override fun onListingClicked(position: Int) {
+  val clicked = galleryArrayList[position]
+  viewModel.setBirdName(clicked.birdName)
+  viewModel.setDescription(clicked.description)
+  viewModel.setPicture(clicked.picture)
+  viewModel.setUser(clicked.user)
+  viewModel.setDate(clicked.date)
+  findNavController().navigate(R.id.action_galleryFragment_to_selectedItemFragment)
+ }
+
+
 }
 
 //TODO: JUST NOTES

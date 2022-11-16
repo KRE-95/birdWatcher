@@ -52,4 +52,5 @@
     <string name="show_the_date_when_taken_picture">show the date, when taken picture</string>
     <string name="show_which_location">show which location</string>
     <string name="shows_option_for_editing">shows option for editing</string>
+    <string name="back">Back</string>
 </resources>

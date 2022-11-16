@@ -3,40 +3,26 @@ package com.gruppe16.birdwatcher.fragments
 import android.Manifest
 import android.app.Activity
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.components.CameraX
-import com.gruppe16.birdwatcher.components.FirebaseDatabase
-import com.gruppe16.birdwatcher.data.Listing
-import com.gruppe16.birdwatcher.data.User
 import com.gruppe16.birdwatcher.databinding.FragmentHomeBinding
-import com.gruppe16.birdwatcher.viewmodels.HomeCreateViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.util.*
+import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private val viewModel: HomeCreateViewModel by activityViewModels()
+    private val viewModel: SharedViewModel by activityViewModels()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService

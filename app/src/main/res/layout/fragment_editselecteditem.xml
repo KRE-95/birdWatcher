@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditSelectedItemFragment"
+    tools:context=".fragments.EditSelectedItemFragment"
     android:padding="10dp">
 
     <!-- TODO: Update blank fragment layout -->
@@ -65,9 +65,7 @@
                 android:text="@string/place"
                 android:textColor="@color/black"
                 android:background="@color/cardview_light_background"
-                android:fontFamily="monospace"
-
-                />
+                android:fontFamily="monospace" />
 
             <RadioButton
                 android:id="@+id/dateRadioBtn"
@@ -117,9 +115,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/description" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

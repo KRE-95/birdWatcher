@@ -13,13 +13,13 @@ import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.components.FirebaseDatabase
 import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.databinding.FragmentCreateItemBinding
-import com.gruppe16.birdwatcher.viewmodels.HomeCreateViewModel
+import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 import java.util.*
 
 
 class CreateItemFragment : Fragment() {
 
-    private val viewModel: HomeCreateViewModel by activityViewModels()
+    private val viewModel: SharedViewModel by activityViewModels()
     private var _binding: FragmentCreateItemBinding? = null
     private val binding get() = _binding!!
     private lateinit var db : FirebaseDatabase

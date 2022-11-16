@@ -5,16 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import com.gruppe16.birdwatcher.databinding.FragmentEditselecteditemBinding
-import com.gruppe16.birdwatcher.databinding.FragmentSelecteditemBinding
-import com.gruppe16.birdwatcher.viewmodels.HomeCreateViewModel
+import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 
 
 class EditSelectedItemFragment : Fragment() {
 
-    private val viewModel: HomeCreateViewModel by activityViewModels()
+    private val viewModel: SharedViewModel by activityViewModels()
     private var _binding: FragmentEditselecteditemBinding? = null
     private val binding get() = _binding!!
 

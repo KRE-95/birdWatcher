@@ -35,13 +35,22 @@
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/selectedItemFragment"
-        android:name="com.gruppe16.birdwatcher.SelectedItemFragment"
-        android:label="SelectedItemFragment" />
+        android:name="com.gruppe16.birdwatcher.fragments.SelectedItemFragment"
+        android:label="SelectedItemFragment"
+        tools:layout="@layout/fragment_selecteditem">
+        <action
+            android:id="@+id/action_selectedItemFragment_to_editSelectedItemFragment"
+            app:destination="@id/editSelectedItemFragment" />
+        <action
+            android:id="@+id/action_selectedItemFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editSelectedItemFragment"
-        android:name="com.gruppe16.birdwatcher.EditSelectedItemFragment"
+        android:name="com.gruppe16.birdwatcher.fragments.EditSelectedItemFragment"
         android:label="fragment_editselecteditem"
-        tools:layout="@layout/fragment_editselecteditem" />
+        tools:layout="@layout/fragment_editselecteditem">
+    </fragment>
     <fragment
         android:id="@+id/createItem"
         android:name="com.gruppe16.birdwatcher.fragments.CreateItemFragment"
