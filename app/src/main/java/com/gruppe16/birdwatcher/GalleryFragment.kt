@@ -50,13 +50,17 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery), GalleryRecyclerAdap
   searchView = view.findViewById(R.id.searchView)
   searchView.clearFocus()
   // search listner and add logic
-  //searchView.setOnQueryTextListener(OnQueryTextListener(){
+  searchView.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
+   override fun onQueryTextSubmit(query: String?): Boolean {
+    TODO("Not yet implemented")
+   }
+
+   override fun onQueryTextChange(newText: String?): Boolean {
+    TODO("Not yet implemented")
+   }
 
 
-
-
-
- //})
+  })
 
   val layoutManager = LinearLayoutManager(context)
   recyclerView = view.findViewById(R.id.RecyclerView)
