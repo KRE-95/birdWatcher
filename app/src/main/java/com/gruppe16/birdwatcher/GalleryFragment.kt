@@ -1,4 +1,5 @@
 package com.gruppe16.birdwatcher
+import android.app.ProgressDialog.show
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -6,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -17,6 +20,7 @@ import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.databinding.FragmentGalleryBinding
 import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 
+
 class GalleryFragment : Fragment(R.layout.fragment_gallery), GalleryRecyclerAdapter.OnListingClickedListener {
  private val viewModel: SharedViewModel by activityViewModels()
  private var _binding : FragmentGalleryBinding? = null
@@ -24,6 +28,8 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery), GalleryRecyclerAdap
  private lateinit var ourAdapter: GalleryRecyclerAdapter
  private lateinit var recyclerView: RecyclerView
  private lateinit var galleryArrayList : ArrayList<Listing>
+ // search
+ private  lateinit var searchView: SearchView
  private lateinit var db : FirebaseFirestore
 
  override fun onCreateView(
@@ -39,6 +45,18 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery), GalleryRecyclerAdap
   super.onViewCreated(view, savedInstanceState)
   galleryArrayList = arrayListOf()
   getDataFromFirestore()
+
+  // search by id
+  searchView = view.findViewById(R.id.searchView)
+  searchView.clearFocus()
+  // search listner and add logic
+  //searchView.setOnQueryTextListener(OnQueryTextListener(){
+
+
+
+
+
+ //})
 
   val layoutManager = LinearLayoutManager(context)
   recyclerView = view.findViewById(R.id.RecyclerView)
@@ -86,7 +104,9 @@ private fun getDataFromFirestore(){
  }
 
 
-}
+
+
+ }
 
 //TODO: JUST NOTES
 // Få tak på data som ligger lokalt etter databasekall og føre det til recyclerView
