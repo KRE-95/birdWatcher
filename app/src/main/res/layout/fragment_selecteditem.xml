@@ -110,15 +110,15 @@
             app:layout_constraintVertical_bias="0.114" />
 
         <Button
-            android:id="@+id/editSelectedItemButton"
+            android:id="@+id/deleteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:background="@color/second_Lt_green"
-            android:contentDescription="@string/shows_option_for_editing"
-            android:text="@string/edit"
+            android:contentDescription="@string/delete_listing"
+            android:text="@string/delete"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/backButton"
@@ -135,7 +135,7 @@
             android:layout_marginEnd="68dp"
             android:layout_marginBottom="16dp"
             android:background="@color/second_Lt_green"
-            android:contentDescription="@string/shows_option_for_editing"
+            android:contentDescription="@string/back"
             android:text="@string/back"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
