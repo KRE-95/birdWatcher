@@ -81,7 +81,7 @@
             android:layout_marginStart="64dp"
             android:layout_marginTop="24dp"
             android:hint="@string/datehint"
-            android:textColorHint="#757575"
+            android:textColorHint="#78909C"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etUser" />
 

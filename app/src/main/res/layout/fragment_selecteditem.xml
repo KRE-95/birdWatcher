@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.SelectedItemFragment"
     android:layout_margin="5dp"
-
     >
 
     <!-- Check the constrains, when the Data is on place-->
@@ -25,7 +24,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:cardBackgroundColor="@color/md_theme_light_secondaryContainer">
+            app:cardBackgroundColor="@color/md_theme_dark_primaryContainer">
 
             <ImageView
                 android:id="@+id/selectedItem"

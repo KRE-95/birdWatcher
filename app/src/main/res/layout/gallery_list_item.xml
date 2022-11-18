@@ -30,7 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/ic_launcher"
-             />
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/tV_BirdName"
