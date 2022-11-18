@@ -61,8 +61,9 @@ class SelectedItemFragment : Fragment() {
             editSelectedItem("description", "description")
         }
 
-        binding.editSelectedItemButton.setOnClickListener{
-            findNavController().navigate(R.id.action_selectedItemFragment_to_editSelectedItemFragment)
+        binding.deleteButton.setOnClickListener{
+            db.deleteListing(viewModel.listId.value.toString())
+            findNavController().navigate(R.id.action_selectedItemFragment_to_galleryFragment)
         }
 
         binding.backButton.setOnClickListener{
@@ -70,7 +71,6 @@ class SelectedItemFragment : Fragment() {
         }
     }
 
-    //TODO: add logic for edit activity
     private fun editSelectedItem(enterText: String, toUpdate: String){
         val builder = AlertDialog.Builder(this.requireContext())
         val inflater = layoutInflater

@@ -24,6 +24,10 @@ class FirebaseDatabase {
     val pictureUrl: String?
         get() = _pictureUrl
 
+    private fun setPictureUrl(url: String?){
+        _pictureUrl = url
+    }
+
     protected fun saveUser(user: User)  = CoroutineScope(Dispatchers.IO).launch {
         try {
             userCollectionRef.add(user)
@@ -41,11 +45,11 @@ class FirebaseDatabase {
         try {
             listingCollectionRef.add(listing)
             withContext(Dispatchers.Main) {
-                Toast.makeText(fragment.requireContext(), "Saved data", Toast.LENGTH_LONG).show()
+                Toast.makeText(fragment.requireContext(), "Saved data", Toast.LENGTH_SHORT).show()
             }
         } catch(e: Exception) {
             withContext(Dispatchers.Main) {
-                Toast.makeText(fragment.requireContext(), e.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(fragment.requireContext(), e.message, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -76,7 +80,7 @@ class FirebaseDatabase {
         }
     }
 
-    private fun setPictureUrl(url: String?){
-        _pictureUrl = url
+    fun deleteListing(id: String) {
+        listingCollectionRef.document(id).delete()
     }
 }

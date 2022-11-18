@@ -57,4 +57,6 @@
     <string name="etLocation">edit location</string>
     <string name="etDescription">edit description</string>
     <string name="etDate">edit date</string>
+    <string name="delete">Delete</string>
+    <string name="delete_listing">Delete this listing</string>
 </resources>
