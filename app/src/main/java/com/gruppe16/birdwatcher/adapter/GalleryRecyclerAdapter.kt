@@ -1,6 +1,5 @@
 package com.gruppe16.birdwatcher.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,16 +43,7 @@ class GalleryRecyclerAdapter (
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-     // gallery_list + listing
-
-        //val picture: ImageView = itemView.findViewById(R.id.ImageV_Display_Gallery)
         val birdName: TextView = itemView.findViewById(R.id.tV_BirdName)
-
-        fun initClick(item: Listing, action: OnListingClickedListener){
-            itemView.setOnClickListener{
-                action.onListingClicked(bindingAdapterPosition)
-            }
-        }
     }
 
     interface OnListingClickedListener {

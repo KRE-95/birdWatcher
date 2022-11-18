@@ -24,6 +24,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery), GalleryRecyclerAdap
  private lateinit var ourAdapter: GalleryRecyclerAdapter
  private lateinit var recyclerView: RecyclerView
  private lateinit var galleryArrayList : ArrayList<Listing>
+ private lateinit var idList: ArrayList<String>
  private lateinit var db : FirebaseFirestore
 
  override fun onCreateView(
@@ -38,6 +39,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery), GalleryRecyclerAdap
  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
   super.onViewCreated(view, savedInstanceState)
   galleryArrayList = arrayListOf()
+  idList = arrayListOf()
   getDataFromFirestore()
 
   val layoutManager = LinearLayoutManager(context)
@@ -54,7 +56,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery), GalleryRecyclerAdap
   println(galleryArrayList.size)
  }
 
-private fun getDataFromFirestore(){
+private fun getDataFromFirestore() {
 
  db = FirebaseFirestore.getInstance()
  db.collection("listings")//TODO Add query to sort by descending?
@@ -67,6 +69,7 @@ private fun getDataFromFirestore(){
      //For hvert leste objekt legges det til i lokal lagring
      val newObject = document.toObject(Listing::class.java)
      galleryArrayList.add(newObject)
+     idList.add(document.id)
     }
     ourAdapter.notifyDataSetChanged()
    } else {
@@ -77,11 +80,13 @@ private fun getDataFromFirestore(){
 
  override fun onListingClicked(position: Int) {
   val clicked = galleryArrayList[position]
+  Log.d("CLICKED ID", "HERE ${idList[position]}")
   viewModel.setBirdName(clicked.birdName)
   viewModel.setDescription(clicked.description)
   viewModel.setPicture(clicked.picture)
   viewModel.setUser(clicked.user)
   viewModel.setDate(clicked.date)
+  viewModel.setListId(idList[position])
   findNavController().navigate(R.id.action_galleryFragment_to_selectedItemFragment)
  }
 

@@ -45,30 +45,31 @@
 
         <TextView
             android:id="@+id/birdName"
-            android:layout_width="203dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="179dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="monospace"
             android:text="@string/bird"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.567"
+            app:layout_constraintHorizontal_bias="0.275"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <TextView
             android:id="@+id/place"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="106dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="178dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="106dp"
             android:contentDescription="@string/show_which_location"
             android:fontFamily="monospace"
             android:text="@string/location"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.627"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/birdName" />
 
@@ -76,7 +77,7 @@
             android:id="@+id/date"
             android:layout_width="197dp"
             android:layout_height="46dp"
-            android:layout_marginStart="106dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="106dp"
             android:contentDescription="@string/show_the_date_when_taken_picture"
@@ -85,16 +86,16 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.759"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/place"
-            app:layout_constraintVertical_bias="0.038" />
+            app:layout_constraintVertical_bias="0.073" />
 
         <TextView
             android:id="@+id/description"
             android:layout_width="206dp"
             android:layout_height="153dp"
-            android:layout_marginStart="106dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="105dp"
             android:contentDescription="@string/show_few_details_about_bird"
@@ -103,10 +104,10 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.813"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/date"
-            app:layout_constraintVertical_bias="0.082" />
+            app:layout_constraintVertical_bias="0.114" />
 
         <Button
             android:id="@+id/editSelectedItemButton"
@@ -141,5 +142,54 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description"
             app:layout_constraintVertical_bias="0.354" />
+
+        <ImageButton
+            android:id="@+id/editNameBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/etBirdName"
+            android:src="@android:drawable/ic_menu_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toEndOf="@+id/birdName"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <ImageButton
+            android:id="@+id/editLocationBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/etLocation"
+            android:src="@android:drawable/ic_menu_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toEndOf="@+id/place"
+            app:layout_constraintTop_toBottomOf="@+id/editNameBtn" />
+
+        <ImageButton
+            android:id="@+id/editDateBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@string/etDate"
+            android:src="@android:drawable/ic_menu_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toEndOf="@+id/date"
+            app:layout_constraintTop_toBottomOf="@+id/editLocationBtn" />
+
+        <ImageButton
+            android:id="@+id/editDescriptionBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="36dp"
+            android:contentDescription="@string/etDescription"
+            android:src="@android:drawable/ic_menu_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintStart_toEndOf="@+id/description"
+            app:layout_constraintTop_toBottomOf="@+id/editDateBtn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
