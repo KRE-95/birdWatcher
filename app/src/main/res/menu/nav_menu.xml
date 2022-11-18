@@ -16,11 +16,4 @@
         >
     </item>
 
-    <item
-        android:id="@+id/globalFragment"
-        android:title="@string/global"
-        android:icon="@drawable/ic_round_global_alt_24"
-        >
-    </item>
-
 </menu>

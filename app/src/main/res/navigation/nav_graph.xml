@@ -16,43 +16,21 @@
     </fragment>
     <fragment
         android:id="@+id/galleryFragment"
-        android:name="com.gruppe16.birdwatcher.GalleryFragment"
+        android:name="com.gruppe16.birdwatcher.fragments.GalleryFragment"
         android:label="fragment_gallery"
-        tools:layout="@layout/fragment_gallery" >
+        tools:layout="@layout/fragment_gallery">
         <action
             android:id="@+id/action_galleryFragment_to_selectedItemFragment"
             app:destination="@id/selectedItemFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/globalFragment"
-        android:name="com.gruppe16.birdwatcher.GlobalFragment"
-        android:label="fragment_global"
-        tools:layout="@layout/fragment_global" />
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.gruppe16.birdwatcher.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/selectedItemFragment"
         android:name="com.gruppe16.birdwatcher.fragments.SelectedItemFragment"
         android:label="SelectedItemFragment"
         tools:layout="@layout/fragment_selecteditem">
         <action
-            android:id="@+id/action_selectedItemFragment_to_editSelectedItemFragment"
-            app:destination="@id/editSelectedItemFragment" />
-        <action
             android:id="@+id/action_selectedItemFragment_to_galleryFragment"
             app:destination="@id/galleryFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/editSelectedItemFragment"
-        android:name="com.gruppe16.birdwatcher.fragments.EditSelectedItemFragment"
-        android:label="fragment_editselecteditem"
-        tools:layout="@layout/fragment_editselecteditem">
-        <action
-            android:id="@+id/action_editSelectedItemFragment_to_selectedItemFragment"
-            app:destination="@id/selectedItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/createItem"
