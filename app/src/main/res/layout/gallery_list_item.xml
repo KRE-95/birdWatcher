@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    app:cardBackgroundColor="@color/second_Lt_green"
     app:cardCornerRadius="15dp"
     app:contentPadding="10dp"
     android:padding="@dimen/cardview_compat_inset_shadow"
     app:flow_horizontalGap="@dimen/cardview_compat_inset_shadow"
     app:flow_verticalGap="@dimen/cardview_compat_inset_shadow"
+    app:cardBackgroundColor="@color/md_theme_light_secondaryContainer"
     android:id="@+id/cardView_galleryItems">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/ic_launcher"
-            tools:ignore="ImageContrastCheck" />
+             />
 
         <TextView
             android:id="@+id/tV_BirdName"
@@ -40,7 +40,6 @@
             android:contentDescription="@string/the_title_of_the_bird"
             android:fontFamily="monospace"
             android:text="@string/bird"
-            android:textColor="@color/black"
             android:textStyle="bold"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -58,7 +57,6 @@
             android:padding="2dp"
             android:contentDescription="@string/Taken_by_user"
             android:text="@string/by"
-            android:textColor="@color/black"
             android:textAlignment="center"
             android:fontFamily="serif-monospace"
             app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
@@ -96,11 +94,6 @@
 
 
             -->
-
-
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

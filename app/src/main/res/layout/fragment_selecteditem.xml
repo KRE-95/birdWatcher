@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".fragments.SelectedItemFragment"
     android:layout_margin="5dp"
+
     >
 
     <!-- Check the constrains, when the Data is on place-->
@@ -20,16 +21,16 @@
             android:id="@+id/cardView"
             android:layout_width="381dp"
             android:layout_height="209dp"
-            app:cardBackgroundColor="@color/second_Lt_green"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardBackgroundColor="@color/md_theme_light_secondaryContainer">
 
             <ImageView
                 android:id="@+id/selectedItem"
-                android:layout_width="316dp"
-                android:layout_height="161dp"
+                android:layout_width="308dp"
+                android:layout_height="162dp"
                 android:layout_margin="40dp"
                 android:contentDescription="@string/full_image_display_of_bird"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +39,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.135"
-                tools:ignore="ImageContrastCheck"
                 tools:srcCompat="@mipmap/ic_launcher" />
 
         </androidx.cardview.widget.CardView>
@@ -48,9 +48,8 @@
             android:layout_width="203dp"
             android:layout_height="33dp"
             android:layout_marginTop="20dp"
-            android:fontFamily="monospace"
             android:text="@string/bird"
-            android:textColor="@color/black"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.567"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,12 +60,11 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="106dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="106dp"
             android:contentDescription="@string/show_which_location"
-            android:fontFamily="monospace"
             android:text="@string/location"
-            android:textColor="@color/black"
+            android:fontFamily="monospace"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,9 +78,8 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="106dp"
             android:contentDescription="@string/show_the_date_when_taken_picture"
-            android:fontFamily="monospace"
             android:text="@string/date"
-            android:textColor="@color/black"
+            android:fontFamily="monospace"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -100,7 +97,6 @@
             android:contentDescription="@string/show_few_details_about_bird"
             android:fontFamily="monospace"
             android:text="@string/description"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -115,31 +111,28 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/second_Lt_green"
             android:contentDescription="@string/shows_option_for_editing"
             android:text="@string/edit"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/backButton"
-            app:layout_constraintHorizontal_bias="0.611"
+            app:layout_constraintHorizontal_bias="0.642"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintVertical_bias="0.152"
+            />
 
         <Button
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="68dp"
+            android:layout_marginEnd="60dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/second_Lt_green"
-            android:contentDescription="@string/shows_option_for_editing"
+            android:contentDescription="@string/shows_option_for_going_back"
             android:text="@string/back"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description"
-            app:layout_constraintVertical_bias="0.354" />
+            app:layout_constraintVertical_bias="0.217" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

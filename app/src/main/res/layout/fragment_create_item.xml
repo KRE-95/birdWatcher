@@ -43,8 +43,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
-            android:text="Save picture"
-            android:textColor="#6D4C41"
+            android:text="@string/save_picture"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -54,8 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:text="Change - TODO"
-            android:textColor="#6D4C41"
+            android:text="@string/change_todo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -72,15 +70,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/username"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColorHint="#8D6E63" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/editTextDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="24dp"
             android:hint="@string/datehint"
             android:textColorHint="#757575"
             app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +98,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/description" />
+                android:hint="@string/description"
+                android:textColorHint="#8D6E63" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -110,7 +110,6 @@
             android:layout_marginBottom="32dp"
             android:enabled="false"
             android:text="@string/save"
-            android:textColor="#6D4C41"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -120,8 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:text="Cancel"
-            android:textColor="#6D4C41"
+            android:text="@string/cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

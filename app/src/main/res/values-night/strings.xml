@@ -10,4 +10,7 @@
     <string name="bird">Bird:</string>
     <string name="write_down_the_name_bird">Write down the name bird.</string>
     <string name="picture_of_edit_bird" />
+    <string name="save_picture">Save picture</string>
+    <string name="change_todo">Change - TODO</string>
+    <string name="cancel">Cancel</string>
 </resources>

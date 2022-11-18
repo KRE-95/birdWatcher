@@ -4,7 +4,7 @@
     <!-- background color for SearchView  -->
     <corners android:radius="8dp" />
     <stroke
-        android:color="@color/prime_Dk_green"
+        android:color="@color/material_dynamic_neutral_variant60"
         android:width="3dp" />
 
 </shape>

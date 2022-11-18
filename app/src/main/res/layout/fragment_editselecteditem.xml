@@ -54,7 +54,6 @@
             app:layout_constraintTop_toBottomOf="@+id/speciesSpinner"
             app:layout_constraintVertical_bias="0.084"
             app:cardCornerRadius="10dp"
-            app:cardBackgroundColor="@color/second_Lt_green"
             android:padding="5dp">
 
 
@@ -63,8 +62,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/place"
-                android:textColor="@color/black"
-                android:background="@color/cardview_light_background"
                 android:fontFamily="monospace" />
 
             <RadioButton
@@ -76,7 +73,6 @@
                 android:layout_marginEnd="50dp"
                 android:fontFamily="monospace"
                 android:text="@string/date"
-                android:textColor="@color/black"
                 tools:ignore="TextContrastCheck" />
         </androidx.cardview.widget.CardView>
 
@@ -90,14 +86,12 @@
             android:layout_marginEnd="32dp"
             android:text="@string/describe"
             android:fontFamily="monospace"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.529"
             app:layout_constraintStart_toEndOf="@+id/speciesSpinner"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.0"
-            android:background="@color/second_Lt_green"/>
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/saveEditButton"
@@ -108,7 +102,6 @@
             android:layout_marginEnd="146dp"
             android:layout_marginBottom="87dp"
             android:text="@string/save"
-            android:textColor="@color/black"
             android:fontFamily="monospace"
             android:textSize="18sp"
             android:textStyle="bold"

@@ -53,4 +53,8 @@
     <string name="show_which_location">show which location</string>
     <string name="shows_option_for_editing">shows option for editing</string>
     <string name="back">Back</string>
+    <string name="shows_option_for_going_back" />
+    <string name="save_picture">Save picture</string>
+    <string name="change_todo">Change - TODO</string>
+    <string name="cancel">Cancel</string>
 </resources>
