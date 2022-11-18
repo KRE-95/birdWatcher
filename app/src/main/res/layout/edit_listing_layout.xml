@@ -7,7 +7,7 @@
         android:id="@+id/etBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/bird_name" />
+        android:hint="@string/enter_text" />
 
 
 </LinearLayout>

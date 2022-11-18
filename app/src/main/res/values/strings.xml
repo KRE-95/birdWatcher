@@ -53,8 +53,5 @@
     <string name="show_which_location">show which location</string>
     <string name="shows_option_for_editing">shows option for editing</string>
     <string name="back">Back</string>
-    <string name="etBirdName">edit bird name</string>
-    <string name="etLocation">edit location</string>
-    <string name="etDescription">edit description</string>
-    <string name="etDate">edit date</string>
+    <string name="enter_text">Enter text here</string>
 </resources>
