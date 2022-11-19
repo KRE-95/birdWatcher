@@ -1,7 +1,6 @@
 package com.gruppe16.birdwatcher.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +23,6 @@ class CreateItemFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var db : FirebaseDatabase
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,8 +43,10 @@ class CreateItemFragment : Fragment() {
         binding.editTextDate.setText(date)
 
         binding.button.setOnClickListener {
-            db.uploadPhotoToStorage(pictureId, pictureUri)
-            binding.saveListing.isEnabled = true
+            if(pictureUri.toString().isNotEmpty()) {
+                db.uploadPhotoToStorage(pictureId, pictureUri)
+                binding.saveListing.isEnabled = true
+            }
         }
 
         binding.cancelListing.setOnClickListener {
@@ -58,12 +58,22 @@ class CreateItemFragment : Fragment() {
 
         binding.saveListing.setOnClickListener {
             val userName = binding.etUser.editText?.text.toString()
-            val description = binding.etDescription.editText?.text.toString()
+            if(userName.isNullOrEmpty()) {
+                binding.etUser.error = "Please enter user name"
+            }
+
             val birdName = binding.etBird.editText?.text.toString()
-            val listingToSave = Listing(birdName, description, db.pictureUrl!!, date, userName)
-            db.saveListing(listingToSave, this)
-            Log.d("CREATE", "LISTING: ${listingToSave.picture} og ${listingToSave.description}")
-            findNavController().navigate(R.id.action_createItem_to_homeFragment)
+            if(birdName.isNullOrEmpty()) {
+                binding.etBird.error = "Please enter bird name"
+            }
+
+            val description = binding.etDescription.editText?.text.toString()
+
+            if (userName.isNotEmpty() && !db.pictureUrl.isNullOrEmpty() && birdName.isNotEmpty()) {
+                val listingToSave = Listing(birdName, description, db.pictureUrl!!, date, userName)
+                db.saveListing(listingToSave, this)
+                findNavController().navigate(R.id.action_createItem_to_homeFragment)
+            }
         }
     }
 }

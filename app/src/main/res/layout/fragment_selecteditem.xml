@@ -51,6 +51,7 @@
             android:fontFamily="sans-serif-condensed"
             android:text="@string/bird"
             android:textSize="16sp"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.193"
             app:layout_constraintStart_toStartOf="parent"
