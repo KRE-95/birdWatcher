@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    app:cardBackgroundColor="@color/second_Lt_green"
+    app:cardBackgroundColor="@color/md_theme_light_tertiaryContainer"
     app:cardCornerRadius="15dp"
     app:contentPadding="10dp"
     android:padding="@dimen/cardview_compat_inset_shadow"
@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/ImageV_Display_Gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="112dp"
+            android:layout_width="110dp"
+            android:layout_height="100dp"
             android:layout_margin="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
@@ -42,6 +42,7 @@
             android:text="@string/bird"
             android:textStyle="bold"
             android:textAlignment="center"
+            android:textColor="#FF000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
             app:layout_constraintTop_toTopOf="parent"
@@ -59,6 +60,7 @@
             android:text="@string/by"
             android:textAlignment="center"
             android:fontFamily="serif-monospace"
+            android:textColor="#FF000000"
             app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
             app:layout_constraintTop_toTopOf="@+id/tV_BirdName"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -90,6 +92,7 @@
             android:layout_marginTop="24dp"
             android:contentDescription="@string/username"
             android:text="@string/username"
+            android:textColor="#FF000000"
             app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
             app:layout_constraintTop_toTopOf="@+id/tV_TakenBy" />
 

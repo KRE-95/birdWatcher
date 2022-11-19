@@ -31,9 +31,8 @@
         <Button
             android:id="@+id/captureBtnMain"
             android:layout_width="145dp"
-            android:layout_height="89dp"
+            android:layout_height="63dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/second_Lt_green"
             android:text="@string/capture"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +42,7 @@
         <Button
             android:id="@+id/toListingBtn"
             android:layout_width="145dp"
-            android:layout_height="89dp"
+            android:layout_height="63dp"
             android:layout_marginBottom="16dp"
             android:text="@string/to_listing"
             app:layout_constraintBottom_toBottomOf="parent"
