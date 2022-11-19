@@ -50,7 +50,7 @@ class CreateItemFragment : Fragment() {
         }
 
         binding.cancelListing.setOnClickListener {
-            if (db.pictureUrl == null) {
+            if (db.pictureUrl !== null) {
                 db.deletePhotoFromStorage(pictureId)
             }
             findNavController().navigate(R.id.action_createItem_to_homeFragment)
@@ -59,7 +59,8 @@ class CreateItemFragment : Fragment() {
         binding.saveListing.setOnClickListener {
             val userName = binding.etUser.editText?.text.toString()
             val description = binding.etDescription.editText?.text.toString()
-            val listingToSave = Listing("TODO", description, db.pictureUrl!!, date, userName)
+            val birdName = binding.etBird.editText?.text.toString()
+            val listingToSave = Listing(birdName, description, db.pictureUrl!!, date, userName)
             db.saveListing(listingToSave, this)
             Log.d("CREATE", "LISTING: ${listingToSave.picture} og ${listingToSave.description}")
             findNavController().navigate(R.id.action_createItem_to_homeFragment)

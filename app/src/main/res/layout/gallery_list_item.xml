@@ -82,24 +82,19 @@
             app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
             app:layout_constraintTop_toTopOf="@+id/tV_BirdName" />
 
-        <TextView
-            android:id="@+id/tV_Place_Gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="176dp"
-            android:layout_marginTop="24dp"
-            android:contentDescription="@string/location_for_where_bird_was_found"
-            android:text="@string/place_location"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/ImageV_Display_Gallery"
-            app:layout_constraintTop_toTopOf="@+id/tV_Description_Gallery" />
-
-
             -->
 
-
-
-
+        <TextView
+            android:id="@+id/tV_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/username"
+            android:text="@string/username"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/ImageV_Display_Gallery"
+            app:layout_constraintTop_toTopOf="@+id/tV_TakenBy" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

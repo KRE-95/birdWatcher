@@ -29,6 +29,7 @@ class GalleryRecyclerAdapter (
         currentItem = galleryListing[position]
         Glide.with(holder.itemView).load(galleryListing[position].picture).into(holder.itemView.findViewById(R.id.ImageV_Display_Gallery))
         holder.birdName.text = currentItem?.birdName
+        holder.userName.text = currentItem?.user
 
         holder.itemView.setOnClickListener {
             onListingClickedListener.onListingClicked(position)
@@ -44,6 +45,7 @@ class GalleryRecyclerAdapter (
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val birdName: TextView = itemView.findViewById(R.id.tV_BirdName)
+        val userName: TextView = itemView.findViewById(R.id.tV_user)
     }
 
     interface OnListingClickedListener {

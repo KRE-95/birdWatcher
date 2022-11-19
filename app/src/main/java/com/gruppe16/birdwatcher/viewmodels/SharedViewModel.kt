@@ -26,9 +26,6 @@ class SharedViewModel : ViewModel() {
     private val _listId = MutableLiveData("")
     val listId: LiveData<String> = _listId
 
-    private val _editText = MutableLiveData("")
-    val editText: LiveData<String> = _editText
-
     fun setPictureUri(uri: String) {
         _pictureUri.value = uri
     }
@@ -55,9 +52,5 @@ class SharedViewModel : ViewModel() {
 
     fun setListId(listId: String) {
         _listId.value = listId
-    }
-
-    fun setEditText(editText: String) {
-        _editText.value = editText
     }
 }
