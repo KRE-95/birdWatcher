@@ -118,3 +118,4 @@ class SelectedItemFragment : Fragment() {
         }
     }
 }
+
