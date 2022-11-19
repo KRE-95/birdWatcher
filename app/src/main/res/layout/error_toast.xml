@@ -11,10 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="16dp"
+        android:textSize="20dp"
         android:textColor="#EE4B2B"
         android:padding="16dp"
-        android:background="@color/prime_Dk_green"
+        android:background="@drawable/search_view_bc"
+        android:backgroundTint="@color/design_default_color_background"
         android:layout_weight="0.8"/>
 
 </LinearLayout>

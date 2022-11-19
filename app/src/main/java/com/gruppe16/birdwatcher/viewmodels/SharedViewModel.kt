@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+
 class SharedViewModel : ViewModel() {
     private val _pictureUri = MutableLiveData("")
     val pictureUri: LiveData<String> = _pictureUri

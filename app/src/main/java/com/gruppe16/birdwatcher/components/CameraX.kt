@@ -18,6 +18,7 @@ import com.gruppe16.birdwatcher.databinding.FragmentHomeBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 class CameraX(var fragment: HomeFragment, private var binding: FragmentHomeBinding) {
 
     private var imageCapture: ImageCapture? = null

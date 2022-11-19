@@ -1,4 +1,5 @@
 package com.gruppe16.birdwatcher.fragments
+
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import com.gruppe16.birdwatcher.adapter.GalleryRecyclerAdapter
 import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.databinding.FragmentGalleryBinding
 import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
+
 
 class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListener {
  private val viewModel: SharedViewModel by activityViewModels()
@@ -89,8 +91,6 @@ private fun getDataFromFirestore() {
   viewModel.setListId(idList[position])
   findNavController().navigate(R.id.action_galleryFragment_to_selectedItemFragment)
  }
-
-
 }
 
 //TODO: JUST NOTES

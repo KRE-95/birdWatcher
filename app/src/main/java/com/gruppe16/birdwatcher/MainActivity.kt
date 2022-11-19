@@ -18,8 +18,9 @@ import com.google.android.material.navigation.NavigationView
 import com.gruppe16.birdwatcher.data.User
 import com.gruppe16.birdwatcher.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
-    // global (not null) this for navigation drawer - connect three navigation coponents.
+    // global (not null) this for navigation drawer - connect three navigation components.
     lateinit var drawerOpen: ImageView
     lateinit var navigationDrawer: NavigationView
     lateinit var drawerLayout: DrawerLayout
@@ -38,10 +39,10 @@ class MainActivity : AppCompatActivity() {
         drawerOpen.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
+
         // to connect
         val navController:NavController=Navigation.findNavController(this,R.id.fragment)
         NavigationUI.setupWithNavController(navigationDrawer,navController)
     }
-
 }
 

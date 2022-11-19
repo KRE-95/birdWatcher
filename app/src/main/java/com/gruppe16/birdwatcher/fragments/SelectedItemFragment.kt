@@ -19,6 +19,7 @@ import com.gruppe16.birdwatcher.components.FirebaseDatabase
 import com.gruppe16.birdwatcher.databinding.FragmentSelecteditemBinding
 import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 
+
 class SelectedItemFragment : Fragment() {
 
     private val viewModel: SharedViewModel by activityViewModels()
