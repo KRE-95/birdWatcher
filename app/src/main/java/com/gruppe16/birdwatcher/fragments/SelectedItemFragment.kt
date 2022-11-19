@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -81,12 +82,23 @@ class SelectedItemFragment : Fragment() {
             setTitle("Enter new ${enterText}:")
             setPositiveButton("OK") {
                     dialog, which ->
-                db.updateListing(viewModel.listId.value.toString(), toUpdate, editText.text.toString())
-                when(enterText) {
-                    "bird name" -> binding.birdName.text = editText.text.toString()
-                    "location" -> binding.place.text = editText.text.toString()
-                    "date" -> binding.date.text = editText.text.toString()
-                    else -> binding.description.text = editText.text.toString()
+                if (editText.text.toString().isNullOrEmpty()) {
+                    Toast.makeText(
+                        this@SelectedItemFragment.requireContext(),
+                        "No new ${enterText} entered" , Toast.LENGTH_LONG )
+                        .show()
+                } else {
+                    db.updateListing(
+                        viewModel.listId.value.toString(),
+                        toUpdate,
+                        editText.text.toString()
+                    )
+                    when (enterText) {
+                        "bird name" -> binding.birdName.text = editText.text.toString()
+                        "location" -> binding.place.text = editText.text.toString()
+                        "date" -> binding.date.text = editText.text.toString()
+                        else -> binding.description.text = editText.text.toString()
+                    }
                 }
             }
             setNegativeButton("Cancel") {
