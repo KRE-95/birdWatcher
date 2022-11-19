@@ -55,9 +55,10 @@
     <string name="back">Back</string>
     <string name="enter_text">Enter text here</string>
     <string name="delete_listing">delete this listing</string>
-    <string name="delete">delete</string>
+
     <string name="et_BirdName">Edit bird name</string>
     <string name="et_location">Edit location</string>
     <string name="et_date">Edit date</string>
     <string name="et_description">Edit description</string>
+    <string name="delete">Delete</string>
 </resources>

@@ -1,13 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">bird Watcher</string>
+    <string name="birdwatcher">birdWatcher</string>
+    <string name="home">Home</string>
+    <string name="global">Global</string>
+    <string name="search">Search</string>
+    <string name="gallery">Gallery</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Welcome</string>
+    <string name="shows_header_icon_image_of_birds">shows header icon image of birds</string>
+    <string name="white_throated_dipper_in_natural_surroundings">white_throated_dipper_in_natural_surroundings</string>
+    <string name="capture">Capture</string>
+    <string name="to_listing">No picture</string>
+    <string name="picture_of_selected_bird">picture_of_selected_bird</string>
+    <string name="usercomment">userComment</string>
+    <string name="date">Date</string>
+    <string name="save">Save</string>
+    <string name="place">Place</string>
+    <string name="spinner_for_species_selection">spinner_for_species_selection</string>
+    <string name="selectedspecies">selectedSpecies</string>
+    <string name="selectedplace">selectedPlace</string>
+    <string name="selecteddate">selectedDate</string>
+    <string name="edit">Edit</string>
     <string name="display_of_bird_picture">display of bird picture</string>
     <string name="species">Species:</string>
     <string name="description_about_bird">description about bird</string>
+    <string name="description">Description:</string>
     <string name="place_location">Place:</string>
     <string name="location_for_where_bird_was_found">location for where bird was found</string>
     <string name="when_picture_was_taken">when picture was taken</string>
     <string name="time">Time:</string>
     <string name="bird">Bird:</string>
     <string name="write_down_the_name_bird">Write down the name bird.</string>
+    <string name="the_title_of_the_bird">The title of the bird</string>
+    <string name="username">Username</string>
+    <string name="datehint">MM.DD.YYYY</string>
+    <string name="bird_name">Bird name:</string>
+    <string name="full_image_display_of_bird">full image display of bird</string>
     <string name="picture_of_edit_bird" />
+
+    <!-- TODO: ONLY USED TO TEST RECYCLERVIEW -->
+    <string name="birdName_1">Fossekall</string>
+    <string name="description_1">Cool bird!</string>
+    <string name="choosepic">Choose your picture</string>
+    <string name="Taken_by_user" />
+    <string name="by">By:</string>
+    <string name="describe">Describe:</string>
+    <string name="location">Location:</string>
+    <string name="a_button_for_editing">a button for editing</string>
+    <string name="show_few_details_about_bird">show few details about bird</string>
+    <string name="show_the_date_when_taken_picture">show the date, when taken picture</string>
+    <string name="show_which_location">show which location</string>
+    <string name="shows_option_for_editing">shows option for editing</string>
+    <string name="back">Back</string>
+    <string name="enter_text">Enter text here</string>
+    <string name="delete_listing">delete this listing</string>
+    <string name="et_BirdName">Edit bird name</string>
+    <string name="et_location">Edit location</string>
+    <string name="et_date">Edit date</string>
+    <string name="et_description">Edit description</string>
+    <string name="delete">Delete</string>
 </resources>

@@ -20,8 +20,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center"
-            android:background="@color/prime_Dk_green">
+            android:gravity="center">
 
             <!-- ImageView for menu - icons, id: drawer_open-->
             <ImageView
@@ -42,7 +41,7 @@
                 android:textStyle="bold"
                 android:layout_margin="15dp"
                 android:textSize="18sp"
-                android:textColor="@color/black">
+                >
 
             </TextView>
 
