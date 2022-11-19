@@ -20,7 +20,7 @@ import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment() {
 
     private val viewModel: SharedViewModel by activityViewModels()
     private var _binding: FragmentHomeBinding? = null

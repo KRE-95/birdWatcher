@@ -17,7 +17,7 @@ import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.databinding.FragmentGalleryBinding
 import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 
-class GalleryFragment : Fragment(R.layout.fragment_gallery), GalleryRecyclerAdapter.OnListingClickedListener {
+class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListener {
  private val viewModel: SharedViewModel by activityViewModels()
  private var _binding : FragmentGalleryBinding? = null
  private val binding get() = _binding!!
