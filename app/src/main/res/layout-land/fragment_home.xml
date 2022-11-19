@@ -36,7 +36,7 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/second_Lt_green"
             android:text="@string/capture"
-            android:textColor="@color/black"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -47,7 +47,6 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="@string/to_listing"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
