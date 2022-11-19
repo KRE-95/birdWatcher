@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/errorToast"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+    
+    <TextView
+        android:id="@+id/tVToast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16dp"
+        android:textColor="#EE4B2B"
+        android:padding="16dp"
+        android:background="@color/prime_Dk_green"
+        android:layout_weight="0.8"/>
+
+</LinearLayout>

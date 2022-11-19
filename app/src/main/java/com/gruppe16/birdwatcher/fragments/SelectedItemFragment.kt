@@ -2,10 +2,12 @@ package com.gruppe16.birdwatcher.fragments
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
@@ -74,8 +76,7 @@ class SelectedItemFragment : Fragment() {
 
     private fun editSelectedItem(enterText: String, toUpdate: String){
         val builder = AlertDialog.Builder(this.requireContext())
-        val inflater = layoutInflater
-        val dialogLayout = inflater.inflate(R.layout.edit_listing_layout, null)
+        val dialogLayout = layoutInflater.inflate(R.layout.edit_listing_layout, null)
         val editText = dialogLayout.findViewById<EditText>(R.id.etBox)
 
         with(builder) {
@@ -83,10 +84,16 @@ class SelectedItemFragment : Fragment() {
             setPositiveButton("OK") {
                     dialog, which ->
                 if (editText.text.toString().isNullOrEmpty()) {
-                    Toast.makeText(
-                        this@SelectedItemFragment.requireContext(),
-                        "No new ${enterText} entered" , Toast.LENGTH_LONG )
-                        .show()
+                    val toast = Toast(this@SelectedItemFragment.requireContext())
+
+                    toast.apply {
+                        val layout = layoutInflater.inflate(R.layout.error_toast, null)
+                        layout.findViewById<TextView>(R.id.tVToast).text = "No ${enterText} was entered"
+                        setGravity(Gravity.CENTER, 0 ,0 )
+                        duration = Toast.LENGTH_LONG
+                        view = layout
+                        show()
+                    }
                 } else {
                     db.updateListing(
                         viewModel.listId.value.toString(),
