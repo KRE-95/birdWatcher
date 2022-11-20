@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.gruppe16.birdwatcher.fragments
 
 import android.app.Activity
@@ -31,7 +33,7 @@ class CreateItemFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCreateItemBinding.inflate(inflater, container, false)
         return binding.root
@@ -44,49 +46,66 @@ class CreateItemFragment : Fragment() {
         val date = viewModel.date.value.toString()
         val pictureId = UUID.randomUUID().toString()
         binding.imageView2.setImageURI(pictureUri)
-        binding.editTextDate.setText(date)
+        binding.editTextDate.text = date
 
         binding.keepPictureBtn.setOnClickListener {
-            if(pictureUri.toString().isNotEmpty()) {
-                db.uploadPhotoToStorage(pictureId, pictureUri)
-                binding.saveListing.isEnabled = true
-            }
+            confirmPicture(pictureId)
         }
 
         binding.changePictureBtn.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/Pictures/CameraX-Image"
-            startActivityForResult(intent, 0)
+            toGallery()
         }
 
         binding.cancelListing.setOnClickListener {
-            if (db.pictureUrl !== null) {
-                db.deletePhotoFromStorage(pictureId)
-            }
-            findNavController().navigate(R.id.action_createItem_to_homeFragment)
+            cancel(pictureId)
         }
 
         binding.saveListing.setOnClickListener {
-            val userName = binding.etUser.editText?.text.toString()
-            if(userName.isNullOrEmpty()) {
-                binding.etUser.error = "Please enter user name"
-            }
-
-            val birdName = binding.etBird.editText?.text.toString()
-            if(birdName.isNullOrEmpty()) {
-                binding.etBird.error = "Please enter bird name"
-            }
-
-            val description = binding.etDescription.editText?.text.toString()
-
-            if (userName.isNotEmpty() && !db.pictureUrl.isNullOrEmpty() && birdName.isNotEmpty()) {
-                val listingToSave = Listing(birdName, description, db.pictureUrl!!, date, userName)
-                db.saveListing(listingToSave, this)
-                findNavController().navigate(R.id.action_createItem_to_homeFragment)
-            }
+            checkListing(date)
         }
     }
 
+    private fun confirmPicture(pictureId: String) {
+        if(pictureUri.toString().isNotEmpty()) {
+            db.uploadPhotoToStorage(pictureId, pictureUri)
+            binding.saveListing.isEnabled = true
+        }
+    }
+
+    private fun toGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/Pictures/CameraX-Image"
+        startActivityForResult(intent, 0)
+    }
+
+    private fun cancel(pictureId: String) {
+        if (db.pictureUrl !== null) {
+            db.deletePhotoFromStorage(pictureId)
+        }
+        findNavController().navigate(R.id.action_createItem_to_homeFragment)
+    }
+
+    private fun checkListing(date: String) {
+        val userName = binding.etUser.editText?.text.toString()
+        if(userName.isEmpty()) {
+            binding.etUser.error = "Please enter user name"
+        }
+
+        val birdName = binding.etBird.editText?.text.toString()
+        if(birdName.isEmpty()) {
+            binding.etBird.error = "Please enter bird name"
+        }
+
+        val description = binding.etDescription.editText?.text.toString()
+
+        if (userName.isNotEmpty() && !db.pictureUrl.isNullOrEmpty() && birdName.isNotEmpty()) {
+            val listingToSave = Listing(birdName, description, db.pictureUrl!!, date, userName)
+            db.saveListing(listingToSave, this)
+            findNavController().navigate(R.id.action_createItem_to_homeFragment)
+        }
+    }
+
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == Activity.RESULT_OK && requestCode == 0) {

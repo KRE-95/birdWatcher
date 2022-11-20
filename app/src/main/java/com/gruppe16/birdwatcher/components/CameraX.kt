@@ -22,9 +22,6 @@ import java.util.*
 class CameraX(var fragment: HomeFragment, private var binding: FragmentHomeBinding) {
 
     private var imageCapture: ImageCapture? = null
-    private var TAG = "HomeFragment"
-    private val FILENAMEFORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
-    private val DATEFORMAT = "dd.MM.yyyy"
 
     private var _pictureUri : String = ""
     val pictureUri: String
@@ -117,5 +114,11 @@ class CameraX(var fragment: HomeFragment, private var binding: FragmentHomeBindi
 
     fun setPictureUri(uri: String){
         _pictureUri = uri
+    }
+
+    companion object {
+        private const val FILENAMEFORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
+        private const val DATEFORMAT = "dd.MM.yyyy"
+        private var TAG = "Home Fragment"
     }
 }
