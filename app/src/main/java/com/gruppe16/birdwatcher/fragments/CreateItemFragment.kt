@@ -6,9 +6,12 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -48,8 +51,12 @@ class CreateItemFragment : Fragment() {
         binding.imageView2.setImageURI(pictureUri)
         binding.editTextDate.text = date
 
+        if (viewModel.pictureUri.value.isNullOrEmpty()) {
+            noPictureToast()
+        }
+
         binding.keepPictureBtn.setOnClickListener {
-            confirmPicture(pictureId)
+            keepPicture(pictureId)
         }
 
         binding.changePictureBtn.setOnClickListener {
@@ -65,10 +72,21 @@ class CreateItemFragment : Fragment() {
         }
     }
 
-    private fun confirmPicture(pictureId: String) {
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK && requestCode == 0) {
+            pictureUri = data?.data
+            binding.imageView2.setImageURI(pictureUri)
+        }
+    }
+
+    private fun keepPicture(pictureId: String) {
         if(pictureUri.toString().isNotEmpty()) {
             db.uploadPhotoToStorage(pictureId, pictureUri)
             binding.saveListing.isEnabled = true
+        } else {
+            noPictureToast()
         }
     }
 
@@ -105,12 +123,16 @@ class CreateItemFragment : Fragment() {
         }
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == Activity.RESULT_OK && requestCode == 0) {
-            pictureUri = data?.data
-            binding.imageView2.setImageURI(pictureUri)
+    private fun noPictureToast() {
+        val toast = Toast(this@CreateItemFragment.requireContext())
+
+        toast.apply {
+            val layout = layoutInflater.inflate(R.layout.error_toast, null)
+            layout.findViewById<TextView>(R.id.tVToast).text = "No picture? Use Change Picture"
+            setGravity(Gravity.CENTER, 0, 0)
+            duration = Toast.LENGTH_LONG
+            view = layout
+            show()
         }
     }
 }
