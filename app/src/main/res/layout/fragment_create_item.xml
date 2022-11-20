@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/choosepic"
-            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textAppearance="?textAppearanceHeadline3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.518"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/keepPictureBtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -48,12 +48,12 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/changePictureBtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:text="Change - TODO"
+            android:text="@string/change"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -66,7 +66,7 @@
             app:helperText="Required*"
             app:helperTextTextColor="#757575"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button">
+            app:layout_constraintTop_toBottomOf="@+id/keepPictureBtn">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -114,7 +114,7 @@
             android:layout_marginEnd="32dp"
             android:inputType="textLongMessage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2">
+            app:layout_constraintTop_toBottomOf="@+id/changePictureBtn">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

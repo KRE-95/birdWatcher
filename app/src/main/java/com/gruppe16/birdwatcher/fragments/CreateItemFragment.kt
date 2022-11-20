@@ -1,5 +1,8 @@
 package com.gruppe16.birdwatcher.fragments
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +24,8 @@ class CreateItemFragment : Fragment() {
     private val viewModel: SharedViewModel by activityViewModels()
     private var _binding: FragmentCreateItemBinding? = null
     private val binding get() = _binding!!
-    private lateinit var db : FirebaseDatabase
+    private lateinit var db: FirebaseDatabase
+    private var pictureUri: Uri? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,17 +40,23 @@ class CreateItemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         db = FirebaseDatabase()
         super.onViewCreated(view, savedInstanceState)
-        val pictureUri = viewModel.pictureUri.value?.toUri()
+        pictureUri = viewModel.pictureUri.value?.toUri()
         val date = viewModel.date.value.toString()
         val pictureId = UUID.randomUUID().toString()
         binding.imageView2.setImageURI(pictureUri)
         binding.editTextDate.setText(date)
 
-        binding.button.setOnClickListener {
+        binding.keepPictureBtn.setOnClickListener {
             if(pictureUri.toString().isNotEmpty()) {
                 db.uploadPhotoToStorage(pictureId, pictureUri)
                 binding.saveListing.isEnabled = true
             }
+        }
+
+        binding.changePictureBtn.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/Pictures/CameraX-Image"
+            startActivityForResult(intent, 0)
         }
 
         binding.cancelListing.setOnClickListener {
@@ -74,6 +84,14 @@ class CreateItemFragment : Fragment() {
                 db.saveListing(listingToSave, this)
                 findNavController().navigate(R.id.action_createItem_to_homeFragment)
             }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK && requestCode == 0) {
+            pictureUri = data?.data
+            binding.imageView2.setImageURI(pictureUri)
         }
     }
 }
