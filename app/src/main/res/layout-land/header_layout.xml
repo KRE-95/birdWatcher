@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This layout for header, when user click on navigation drawer, the header will show  -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="110dp">
+
+            <!-- header image inside of header layout  -->
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/bird_header"
+                android:contentDescription="@string/shows_header_icon_image_of_birds">
+            </ImageView>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- LinearLayout outside of cardview used for title  -->
+        <LinearLayout
+            android:id="@+id/header_h1_h2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+
+            >
+            <!--TextView for title for header  h1-->
+            <TextView
+                android:id="@+id/h1_header"
+                android:text="@string/birdwatcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textStyle="bold">
+            </TextView>
+
+            <!--TextView for title for header h2 -->
+            <TextView
+                android:id="@+id/header_h2"
+                android:text="@string/welcome"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
