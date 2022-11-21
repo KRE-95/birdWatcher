@@ -2,12 +2,9 @@
 
 package com.gruppe16.birdwatcher.fragments
 
-import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -15,8 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -25,7 +20,6 @@ import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.components.FirebaseDatabase
 import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.databinding.FragmentCreateItemBinding
-import com.gruppe16.birdwatcher.fragments.HomeFragment.Companion.REQUIRED_PERMISSIONS
 import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 import java.util.*
 
