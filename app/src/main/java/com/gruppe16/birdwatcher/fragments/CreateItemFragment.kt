@@ -58,6 +58,11 @@ class CreateItemFragment : Fragment() {
         db = FirebaseDatabase()
         super.onViewCreated(view, savedInstanceState)
 
+        ActivityCompat.requestPermissions(
+            activity as Activity,
+            REQUIRED_PERMISSIONS,
+            REQUEST_CODE_PERMISSIONS)
+
         //TODO instansierer location
         location = Location(this, binding)
 
@@ -92,6 +97,7 @@ class CreateItemFragment : Fragment() {
             location.getLocation(this)
 
             latitude = location.latitude
+            longitude = location.longitude
             println("*******************TESTING*******************")
             println("OUTSIDE")
             println("${latitude}, ${longitude}")

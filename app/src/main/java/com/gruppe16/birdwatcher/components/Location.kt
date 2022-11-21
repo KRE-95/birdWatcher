@@ -18,20 +18,19 @@ class Location(var fragment: CreateItemFragment, private var binding: FragmentCr
     //TODO private lateinit var geocoder: Geocoder
     //private var fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(fragment.requireContext())
 
-
-    private var _longitude : Double = 0.0
+    var _longitude : Double = 0.0
     val longitude : Double
         get() = _longitude
 
-    private var _latitude : Double = 0.0
+    var _latitude : Double = 0.0
     val latitude : Double
         get() = _latitude
 
-    private fun setLongitude(longitude: Double) {
+    fun setLongitude(longitude: Double) {
         _longitude = longitude
     }
 
-    private fun setLatitude(latitude: Double) {
+    fun setLatitude(latitude: Double) {
         _latitude = latitude
     }
 
