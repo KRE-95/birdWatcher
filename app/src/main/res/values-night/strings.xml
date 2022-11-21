@@ -61,4 +61,5 @@
     <string name="et_date">Edit date</string>
     <string name="et_description">Edit description</string>
     <string name="delete">Delete</string>
+    <string name="hamburger_menu">Hamburger menu</string>
 </resources>
