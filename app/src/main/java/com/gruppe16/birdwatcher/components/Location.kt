@@ -37,7 +37,7 @@ class Location(var fragment: CreateItemFragment, private var binding: FragmentCr
 
     fun getLocation(fragment: Fragment) {
         //instansiere fusedLocation her eller over?
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(fragment.requireContext())
+       fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(fragment.requireContext())
         val task = fusedLocationProviderClient!!.lastLocation
 
         if(ActivityCompat.checkSelfPermission(fragment.requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)

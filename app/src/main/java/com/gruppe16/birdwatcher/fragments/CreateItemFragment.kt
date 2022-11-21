@@ -15,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.motion.widget.Debug.getLocation
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
@@ -60,7 +61,7 @@ class CreateItemFragment : Fragment() {
         //TODO instansierer location
         location = Location(this, binding)
 
-        //TODO hvis vi har tilgangene så kjøres logikken
+       /* //TODO hvis vi har tilgangene så kjøres logikken
         if (allPermissionsGranted()) {
             location.getLocation(this)
             //TODO await?
@@ -75,6 +76,7 @@ class CreateItemFragment : Fragment() {
                 REQUEST_CODE_PERMISSIONS
             )
         }
+*/
 
         pictureUri = viewModel.pictureUri.value?.toUri()
         val date = viewModel.date.value.toString()
@@ -84,6 +86,16 @@ class CreateItemFragment : Fragment() {
 
         if (viewModel.pictureUri.value.isNullOrEmpty()) {
             noPictureToast()
+        }
+
+        binding.keepPictureBtn.setOnClickListener {
+            location.getLocation(this)
+
+            latitude = location.latitude
+            println("*******************TESTING*******************")
+            println("OUTSIDE")
+            println("${latitude}, ${longitude}")
+            println("*******************TESTING*******************")
         }
 
         binding.keepPictureBtn.setOnClickListener {
