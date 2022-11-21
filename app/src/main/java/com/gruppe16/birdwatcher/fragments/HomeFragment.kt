@@ -13,7 +13,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.components.CameraX
 import com.gruppe16.birdwatcher.databinding.FragmentHomeBinding
 import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
@@ -32,7 +31,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -64,12 +63,13 @@ class HomeFragment : Fragment() {
 
     companion object {
         private const val REQUEST_CODE_PERMISSIONS = 10
-        private val REQUIRED_PERMISSIONS =
+        internal val REQUIRED_PERMISSIONS =
             mutableListOf (
                 Manifest.permission.CAMERA
             ).apply {
                 if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
                     add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    add(Manifest.permission.READ_EXTERNAL_STORAGE)
                 }
             }.toTypedArray()
     }
@@ -79,6 +79,7 @@ class HomeFragment : Fragment() {
             this.requireContext(), it) == PackageManager.PERMISSION_GRANTED
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String>, grantResults:
         IntArray) {

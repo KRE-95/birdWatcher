@@ -14,8 +14,7 @@ class GalleryRecyclerAdapter (
     private val galleryListing : ArrayList<Listing>,
     private val onListingClickedListener: OnListingClickedListener
     ): RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder>() {
-    var currentItem : Listing? = null
-    //var onItemClick : ((Listing) -> Unit)? = null;
+    private var currentItem : Listing? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val  itemView = LayoutInflater

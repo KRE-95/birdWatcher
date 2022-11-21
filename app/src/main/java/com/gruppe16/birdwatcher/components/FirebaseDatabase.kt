@@ -8,7 +8,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.gruppe16.birdwatcher.data.Listing
-import com.gruppe16.birdwatcher.data.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,7 +17,7 @@ import kotlinx.coroutines.withContext
 class FirebaseDatabase {
 
     private val listingCollectionRef = Firebase.firestore.collection("listings")
-    private val userCollectionRef = Firebase.firestore.collection("users")
+    //private val userCollectionRef = Firebase.firestore.collection("users")
 
 
     private var _pictureUrl : String? = null
@@ -29,18 +28,18 @@ class FirebaseDatabase {
         _pictureUrl = url
     }
 
-    protected fun saveUser(user: User)  = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            userCollectionRef.add(user)
-            withContext(Dispatchers.Main) {
-                //Toast.makeText(this@HomeFragment.requireContext(), "Saved data", Toast.LENGTH_LONG).show()
-            }
-        } catch(e: Exception) {
-            withContext(Dispatchers.Main) {
-                //Toast.makeText(this@HomeFragment.requireContext(), e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
+//    protected fun saveUser(user: User)  = CoroutineScope(Dispatchers.IO).launch {
+//        try {
+//            userCollectionRef.add(user)
+//            withContext(Dispatchers.Main) {
+//                //Toast.makeText(this@HomeFragment.requireContext(), "Saved data", Toast.LENGTH_LONG).show()
+//            }
+//        } catch(e: Exception) {
+//            withContext(Dispatchers.Main) {
+//                //Toast.makeText(this@HomeFragment.requireContext(), e.message, Toast.LENGTH_LONG).show()
+//            }
+//        }
+//    }
 
     fun saveListing(listing: Listing, fragment: Fragment)  = CoroutineScope(Dispatchers.IO).launch {
         try {
@@ -59,7 +58,7 @@ class FirebaseDatabase {
         setPictureUrl(null)
         val storage = FirebaseStorage.getInstance().getReference("/photos/$id")
         storage.putFile(selectedPhotoUri!!)
-            .addOnCompleteListener() {
+            .addOnCompleteListener {
                 Log.d("CREATE", "Successfully uploaded photo.")
 
                 storage.downloadUrl.addOnSuccessListener {

@@ -31,7 +31,7 @@ class SelectedItemFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSelecteditemBinding.inflate(inflater, container, false)
         Glide.with(
             this.requireContext())
@@ -46,7 +46,7 @@ class SelectedItemFragment : Fragment() {
         Glide.with(this.requireContext()).load(viewModel.picture.value).into(binding.selectedItem)
         binding.birdName.text = viewModel.birdName.value
         binding.description.text = viewModel.description.value
-        binding.date.setText(viewModel.date.value)
+        binding.date.text = viewModel.date.value
         db = FirebaseDatabase()
 
         binding.editNameBtn.setOnClickListener{
@@ -83,13 +83,13 @@ class SelectedItemFragment : Fragment() {
         with(builder) {
             setTitle("Enter new ${enterText}:")
             setPositiveButton("OK") {
-                    dialog, which ->
-                if (editText.text.toString().isNullOrEmpty()) {
+                    _, _ ->
+                if (editText.text.toString().isEmpty()) {
                     val toast = Toast(this@SelectedItemFragment.requireContext())
 
                     toast.apply {
                         val layout = layoutInflater.inflate(R.layout.error_toast, null)
-                        layout.findViewById<TextView>(R.id.tVToast).text = "No ${enterText} was entered"
+                        layout.findViewById<TextView>(R.id.tVToast).text = "No $enterText was entered"
                         setGravity(Gravity.CENTER, 0 ,0 )
                         duration = Toast.LENGTH_LONG
                         view = layout
@@ -110,7 +110,7 @@ class SelectedItemFragment : Fragment() {
                 }
             }
             setNegativeButton("Cancel") {
-                    dialog, which ->
+                    _, _ ->
                 Log.d("Dialog box", "Edit canceled")
             }
             setView(dialogLayout)
