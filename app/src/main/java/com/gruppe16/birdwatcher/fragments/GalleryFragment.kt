@@ -99,6 +99,7 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
         viewModel.setBirdName(clicked.birdName)
         viewModel.setDescription(clicked.description)
         viewModel.setPicture(clicked.picture)
+        viewModel.setPlace(clicked.place)
         viewModel.setUser(clicked.user)
         viewModel.setDate(clicked.date)
         viewModel.setListId(idList[position])

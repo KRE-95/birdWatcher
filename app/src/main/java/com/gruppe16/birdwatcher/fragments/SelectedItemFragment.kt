@@ -46,6 +46,7 @@ class SelectedItemFragment : Fragment() {
         Glide.with(this.requireContext()).load(viewModel.picture.value).into(binding.selectedItem)
         binding.birdName.text = viewModel.birdName.value
         binding.description.text = viewModel.description.value
+        binding.place.text = viewModel.place.value
         binding.date.text = viewModel.date.value
         db = FirebaseDatabase()
 
