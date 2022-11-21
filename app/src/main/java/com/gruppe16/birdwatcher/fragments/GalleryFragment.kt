@@ -3,9 +3,8 @@ package com.gruppe16.birdwatcher.fragments
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -49,8 +48,22 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
         recyclerView = view.findViewById(R.id.RecyclerView)
         recyclerView.layoutManager = layoutManager
         recyclerView.hasFixedSize()
-        ourAdapter = GalleryRecyclerAdapter(galleryArrayList, this)
+        ourAdapter = GalleryRecyclerAdapter(this)
         recyclerView.adapter = ourAdapter
+        ourAdapter.setData(galleryArrayList)
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                ourAdapter.filter.filter(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                ourAdapter.filter.filter(newText)
+                return true
+            }
+
+        })
     }
 
     override fun onDestroyView() {
@@ -73,7 +86,6 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
                     galleryArrayList.add(newObject)
                     idList.add(document.id)
                  }
-                 ourAdapter.notifyDataSetChanged()
              } else {
                  Log.w(TAG, "Error getting documents.", task.exception)
              }

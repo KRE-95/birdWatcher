@@ -1,20 +1,35 @@
 package com.gruppe16.birdwatcher.adapter
 
+import android.content.ContentValues
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.firestore.FirebaseFirestore
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.data.Listing
 
 
 class GalleryRecyclerAdapter (
-    private val galleryListing : ArrayList<Listing>,
+
     private val onListingClickedListener: OnListingClickedListener
-    ): RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder>() {
+    ): RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder>(), Filterable {
     private var currentItem : Listing? = null
+    private lateinit var db : FirebaseFirestore
+
+    private lateinit var galleryArrayList : ArrayList<Listing>
+    private lateinit var galleryFilterList: ArrayList<Listing>
+
+    fun setData(galleryArrayList: ArrayList<Listing>) {
+        this.galleryArrayList = galleryArrayList
+        this.galleryFilterList = galleryArrayList
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val  itemView = LayoutInflater
@@ -25,8 +40,8 @@ class GalleryRecyclerAdapter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        currentItem = galleryListing[position]
-        Glide.with(holder.itemView).load(galleryListing[position].picture).into(holder.itemView.findViewById(R.id.ImageV_Display_Gallery))
+        currentItem = galleryArrayList[position]
+        Glide.with(holder.itemView).load(galleryArrayList[position].picture).into(holder.itemView.findViewById(R.id.ImageV_Display_Gallery))
         holder.birdName.text = currentItem?.birdName
         holder.userName.text = currentItem?.user
 
@@ -39,7 +54,7 @@ class GalleryRecyclerAdapter (
     }
 
     override fun getItemCount(): Int {
-       return galleryListing.size
+       return galleryArrayList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -49,5 +64,34 @@ class GalleryRecyclerAdapter (
 
     interface OnListingClickedListener {
         fun onListingClicked(position: Int)
+    }
+
+    override fun getFilter(): Filter {
+        return object: Filter() {
+            val result = FilterResults()
+            val filteredList = ArrayList<Listing>()
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+
+                if(constraint.isNullOrEmpty()) {
+                    result.count = galleryFilterList.size
+                    result.values = galleryFilterList
+                } else {
+                    var searchWord = constraint.toString()
+
+                    for(listing in galleryFilterList) {
+                        if(listing.birdName.contains(searchWord) || listing.user.contains(searchWord))
+                            filteredList.add(listing)
+                    }
+                    result.count = filteredList.size
+                    result.values = filteredList
+                }
+                return result
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                galleryArrayList = result.values as ArrayList<Listing>
+                notifyDataSetChanged()
+            }
+        }
     }
 }

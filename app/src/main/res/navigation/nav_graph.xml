@@ -15,7 +15,7 @@
             app:destination="@id/createItem" />
     </fragment>
     <fragment
-        android:id="@+id/galleryFragment"
+        android:id="@+id/searchGalleryFragment"
         android:name="com.gruppe16.birdwatcher.fragments.GalleryFragment"
         android:label="fragment_gallery"
         tools:layout="@layout/fragment_gallery">
@@ -30,7 +30,7 @@
         tools:layout="@layout/fragment_selecteditem">
         <action
             android:id="@+id/action_selectedItemFragment_to_galleryFragment"
-            app:destination="@id/galleryFragment" />
+            app:destination="@id/searchGalleryFragment" />
     </fragment>
     <fragment
         android:id="@+id/createItem"

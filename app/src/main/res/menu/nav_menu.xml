@@ -10,7 +10,7 @@
     </item>
 
     <item
-        android:id="@+id/galleryFragment"
+        android:id="@+id/searchGalleryFragment"
         android:title="@string/gallery"
         android:icon="@drawable/ic_round_gallery_album_24"
         >

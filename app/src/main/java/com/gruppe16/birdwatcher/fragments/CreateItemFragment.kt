@@ -43,13 +43,13 @@ class CreateItemFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        db = FirebaseDatabase()
         super.onViewCreated(view, savedInstanceState)
         pictureUri = viewModel.pictureUri.value?.toUri()
         val date = viewModel.date.value.toString()
         val pictureId = UUID.randomUUID().toString()
         binding.imageView2.setImageURI(pictureUri)
         binding.editTextDate.text = date
+        db = FirebaseDatabase()
 
         if (viewModel.pictureUri.value.isNullOrEmpty()) {
             noPictureToast()
