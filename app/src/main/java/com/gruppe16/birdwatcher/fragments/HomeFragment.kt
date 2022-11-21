@@ -63,7 +63,7 @@ class HomeFragment : Fragment() {
 
     companion object {
         private const val REQUEST_CODE_PERMISSIONS = 10
-        private val REQUIRED_PERMISSIONS =
+        internal val REQUIRED_PERMISSIONS =
             mutableListOf (
                 Manifest.permission.CAMERA
             ).apply {
