@@ -9,9 +9,6 @@ class SharedViewModel : ViewModel() {
     private val _pictureUri = MutableLiveData("")
     val pictureUri: LiveData<String> = _pictureUri
 
-    private val _date = MutableLiveData("")
-    val date: LiveData<String> = _date
-
     private val _birdName = MutableLiveData("")
     val birdName: LiveData<String> = _birdName
 
@@ -21,6 +18,12 @@ class SharedViewModel : ViewModel() {
     private val _picture = MutableLiveData("")
     val picture: LiveData<String> = _picture
 
+    private val _place = MutableLiveData("")
+    val place: LiveData<String> = _place
+
+    private val _date = MutableLiveData("")
+    val date: LiveData<String> = _date
+
     private val _user = MutableLiveData("")
     val user: LiveData<String> = _user
 
@@ -29,10 +32,6 @@ class SharedViewModel : ViewModel() {
 
     fun setPictureUri(uri: String) {
         _pictureUri.value = uri
-    }
-
-    fun setDate(pictureDate: String) {
-        _date.value = pictureDate
     }
 
     fun setBirdName(birdName: String) {
@@ -45,6 +44,14 @@ class SharedViewModel : ViewModel() {
 
     fun setPicture(picture: String) {
         _picture.value = picture
+    }
+
+    fun setDate(pictureDate: String) {
+        _date.value = pictureDate
+    }
+
+    fun setPlace(place: String) {
+        _place.value = place
     }
 
     fun setUser(user: String) {
