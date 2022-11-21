@@ -86,6 +86,7 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
                     galleryArrayList.add(newObject)
                     idList.add(document.id)
                  }
+                 ourAdapter.notifyDataSetChanged()
              } else {
                  Log.w(TAG, "Error getting documents.", task.exception)
              }

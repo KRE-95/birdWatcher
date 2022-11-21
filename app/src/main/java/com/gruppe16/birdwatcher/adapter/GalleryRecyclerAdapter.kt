@@ -1,7 +1,5 @@
 package com.gruppe16.birdwatcher.adapter
 
-import android.content.ContentValues
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +8,6 @@ import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.firebase.firestore.FirebaseFirestore
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.data.Listing
 
@@ -20,7 +17,6 @@ class GalleryRecyclerAdapter (
     private val onListingClickedListener: OnListingClickedListener
     ): RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder>(), Filterable {
     private var currentItem : Listing? = null
-    private lateinit var db : FirebaseFirestore
 
     private lateinit var galleryArrayList : ArrayList<Listing>
     private lateinit var galleryFilterList: ArrayList<Listing>
