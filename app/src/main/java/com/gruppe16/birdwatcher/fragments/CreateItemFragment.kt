@@ -115,13 +115,22 @@ class CreateItemFragment : Fragment() {
             binding.etBird.error = "Please enter bird name"
         }
 
+        val place = binding.etPlace?.editText?.text.toString()
+        if(place.isEmpty()) {
+            binding.etPlace?.error = "Please enter location"
+        }
+
         val description = binding.etDescription.editText?.text.toString()
         if(description.isEmpty()) {
             binding.etDescription.error = "Please enter description"
         }
 
-        if (userName.isNotEmpty() && !db.pictureUrl.isNullOrEmpty() && birdName.isNotEmpty()) {
-            val listingToSave = Listing(birdName, description, db.pictureUrl!!,"", date, userName)
+        if (
+            userName.isNotEmpty() &&
+            !db.pictureUrl.isNullOrEmpty() &&
+            birdName.isNotEmpty() && place.isNotEmpty()
+        ) {
+            val listingToSave = Listing(birdName, description, db.pictureUrl!!, place, date, userName)
             db.saveListing(listingToSave, this)
             findNavController().navigate(R.id.action_createItem_to_homeFragment)
         }
