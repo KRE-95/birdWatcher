@@ -113,6 +113,8 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:inputType="textLongMessage"
+            app:helperText="Required*"
+            app:helperTextTextColor="#757575"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/changePictureBtn">
 

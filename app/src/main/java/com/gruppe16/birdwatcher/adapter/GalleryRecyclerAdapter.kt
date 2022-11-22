@@ -9,21 +9,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.gruppe16.birdwatcher.R
-import com.gruppe16.birdwatcher.data.Listing
-import java.util.*
-import kotlin.collections.ArrayList
+import com.gruppe16.birdwatcher.data.ListingDAO
 
 
 class GalleryRecyclerAdapter (
 
     private val onListingClickedListener: OnListingClickedListener
     ): RecyclerView.Adapter<GalleryRecyclerAdapter.ViewHolder>(), Filterable {
-    private var currentItem : Listing? = null
+    private var currentItem : ListingDAO? = null
 
-    private lateinit var galleryArrayList : ArrayList<Listing>
-    private lateinit var galleryFilterList: ArrayList<Listing>
+    private lateinit var galleryArrayList : ArrayList<ListingDAO>
+    private lateinit var galleryFilterList: ArrayList<ListingDAO>
 
-    fun setData(galleryArrayList: ArrayList<Listing>) {
+    fun setData(galleryArrayList: ArrayList<ListingDAO>) {
         this.galleryArrayList = galleryArrayList
         this.galleryFilterList = galleryArrayList
         notifyDataSetChanged()
@@ -67,7 +65,7 @@ class GalleryRecyclerAdapter (
     override fun getFilter(): Filter {
         return object: Filter() {
             val result = FilterResults()
-            val filteredList = ArrayList<Listing>()
+            val filteredList = ArrayList<ListingDAO>()
             override fun performFiltering(constraint: CharSequence?): FilterResults {
 
                 if(constraint.isNullOrEmpty()) {
@@ -90,7 +88,7 @@ class GalleryRecyclerAdapter (
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                galleryArrayList = result.values as ArrayList<Listing>
+                galleryArrayList = result.values as ArrayList<ListingDAO>
                 notifyDataSetChanged()
             }
         }

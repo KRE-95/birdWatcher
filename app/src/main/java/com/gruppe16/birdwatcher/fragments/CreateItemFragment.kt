@@ -116,6 +116,9 @@ class CreateItemFragment : Fragment() {
         }
 
         val description = binding.etDescription.editText?.text.toString()
+        if(description.isEmpty()) {
+            binding.etDescription.error = "Please enter description"
+        }
 
         if (userName.isNotEmpty() && !db.pictureUrl.isNullOrEmpty() && birdName.isNotEmpty()) {
             val listingToSave = Listing(birdName, description, db.pictureUrl!!,"", date, userName)

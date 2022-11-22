@@ -55,7 +55,7 @@ class SelectedItemFragment : Fragment() {
         }
 
         binding.editLocationBtn.setOnClickListener{
-            editSelectedItem("location", "location")
+            editSelectedItem("location", "place")
         }
 
         binding.editDateBtn.setOnClickListener{

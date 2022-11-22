@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.adapter.GalleryRecyclerAdapter
 import com.gruppe16.birdwatcher.data.Listing
+import com.gruppe16.birdwatcher.data.ListingDAO
 import com.gruppe16.birdwatcher.databinding.FragmentGalleryBinding
 import com.gruppe16.birdwatcher.viewmodels.SharedViewModel
 
@@ -25,8 +26,7 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
     private val binding get() = _binding!!
     private lateinit var ourAdapter: GalleryRecyclerAdapter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var galleryArrayList : ArrayList<Listing>
-    private lateinit var idList: ArrayList<String>
+    private lateinit var galleryArrayList : ArrayList<ListingDAO>
     private lateinit var db : FirebaseFirestore
 
     override fun onCreateView(
@@ -41,7 +41,6 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         galleryArrayList = arrayListOf()
-        idList = arrayListOf()
         getDataFromFirestore()
 
         val layoutManager = LinearLayoutManager(context)
@@ -62,7 +61,6 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
                 ourAdapter.filter.filter(newText)
                 return true
             }
-
         })
     }
 
@@ -82,9 +80,9 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
                     Log.d(TAG, document.id + " => " + document.data)
 
                     //For hvert leste objekt legges det til i lokal lagring
-                    val newObject = document.toObject(Listing::class.java)
+                    val newObject = document.toObject(ListingDAO::class.java)
+                     newObject.listingId = document.id
                     galleryArrayList.add(newObject)
-                    idList.add(document.id)
                  }
                  ourAdapter.notifyDataSetChanged()
              } else {
@@ -95,14 +93,13 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
 
     override fun onListingClicked(position: Int) {
         val clicked = galleryArrayList[position]
-        Log.d("CLICKED ID", "HERE ${idList[position]}")
         viewModel.setBirdName(clicked.birdName)
         viewModel.setDescription(clicked.description)
         viewModel.setPicture(clicked.picture)
         viewModel.setPlace(clicked.place)
         viewModel.setUser(clicked.user)
         viewModel.setDate(clicked.date)
-        viewModel.setListId(idList[position])
+        viewModel.setListId(clicked.listingId)
         findNavController().navigate(R.id.action_galleryFragment_to_selectedItemFragment)
     }
 }
