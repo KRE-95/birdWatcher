@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.data.Listing
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class GalleryRecyclerAdapter (
@@ -75,7 +77,10 @@ class GalleryRecyclerAdapter (
                     var searchWord = constraint.toString()
 
                     for(listing in galleryFilterList) {
-                        if(listing.birdName.contains(searchWord) || listing.user.contains(searchWord))
+                        if(
+                            listing.birdName.contains(searchWord, ignoreCase = true) ||
+                            listing.user.contains(searchWord, ignoreCase = true)
+                        )
                             filteredList.add(listing)
                     }
                     result.count = filteredList.size

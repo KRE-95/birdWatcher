@@ -118,7 +118,7 @@ class CreateItemFragment : Fragment() {
         val description = binding.etDescription.editText?.text.toString()
 
         if (userName.isNotEmpty() && !db.pictureUrl.isNullOrEmpty() && birdName.isNotEmpty()) {
-            val listingToSave = Listing(birdName, description, db.pictureUrl!!, date, userName)
+            val listingToSave = Listing(birdName, description, db.pictureUrl!!,"", date, userName)
             db.saveListing(listingToSave, this)
             findNavController().navigate(R.id.action_createItem_to_homeFragment)
         }
