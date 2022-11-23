@@ -53,7 +53,7 @@ class CreateItemFragment : Fragment() {
         db = FirebaseDatabase()
 
         if (viewModel.pictureUri.value.isNullOrEmpty()) {
-            noPictureToast()
+            errorToast("No picture? Use Change Picture")
         }
 
         binding.keepPictureBtn.setOnClickListener {
@@ -84,10 +84,10 @@ class CreateItemFragment : Fragment() {
 
     private fun keepPicture(pictureId: String) {
         if(pictureUri.toString().isNotEmpty()) {
-            db.uploadPhotoToStorage(pictureId, pictureUri, this)
+            db.uploadPhotoToStorage(pictureId, pictureUri)
             binding.saveListing.isEnabled = true
         } else {
-            noPictureToast()
+            errorToast("No picture? Use Change Picture")
         }
     }
 
@@ -128,20 +128,23 @@ class CreateItemFragment : Fragment() {
         if (
             userName.isNotEmpty() &&
             !db.pictureUrl.isNullOrEmpty() &&
-            birdName.isNotEmpty() && place.isNotEmpty()
+            birdName.isNotEmpty() &&
+            place.isNotEmpty()
         ) {
             val listingToSave = Listing(birdName, description, db.pictureUrl!!, place, date, userName)
             db.saveListing(listingToSave, this)
             findNavController().navigate(R.id.action_createItem_to_homeFragment)
+        } else {
+            errorToast("Could not save. Are you offline?")
         }
     }
 
-    private fun noPictureToast() {
+    private fun errorToast(errorMessage: String) {
         val toast = Toast(this@CreateItemFragment.requireContext())
 
         toast.apply {
             val layout = layoutInflater.inflate(R.layout.error_toast, null)
-            layout.findViewById<TextView>(R.id.tVToast).text = "No picture? Use Change Picture"
+            layout.findViewById<TextView>(R.id.tVToast).text = errorMessage
             setGravity(Gravity.CENTER, 0, 0)
             duration = Toast.LENGTH_LONG
             view = layout

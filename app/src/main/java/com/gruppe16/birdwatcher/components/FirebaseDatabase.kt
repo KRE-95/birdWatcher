@@ -40,7 +40,7 @@ class FirebaseDatabase {
                 }
     }
 
-    fun uploadPhotoToStorage(id: String, selectedPhotoUri: Uri?, fragment: Fragment) {
+    fun uploadPhotoToStorage(id: String, selectedPhotoUri: Uri?) {
         setPictureUrl(null)
         val storage = FirebaseStorage.getInstance().getReference("/photos/$id")
         storage.putFile(selectedPhotoUri!!)
