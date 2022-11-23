@@ -84,7 +84,7 @@ class CreateItemFragment : Fragment() {
 
     private fun keepPicture(pictureId: String) {
         if(pictureUri.toString().isNotEmpty()) {
-            db.uploadPhotoToStorage(pictureId, pictureUri)
+            db.uploadPhotoToStorage(pictureId, pictureUri, this)
             binding.saveListing.isEnabled = true
         } else {
             noPictureToast()

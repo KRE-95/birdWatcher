@@ -3,7 +3,9 @@ package com.gruppe16.birdwatcher.fragments
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -13,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.gruppe16.birdwatcher.R
 import com.gruppe16.birdwatcher.adapter.GalleryRecyclerAdapter
-import com.gruppe16.birdwatcher.data.Listing
 import com.gruppe16.birdwatcher.data.ListingDAO
 import com.gruppe16.birdwatcher.databinding.FragmentGalleryBinding
 import com.gruppe16.birdwatcher.viewmodels.SharedViewModel

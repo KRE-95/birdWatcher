@@ -67,7 +67,7 @@ class SelectedItemFragment : Fragment() {
         }
 
         binding.deleteButton.setOnClickListener{
-            db.deleteListing(viewModel.listId.value.toString())
+            db.deleteListing(viewModel.listId.value.toString(), this)
             findNavController().navigate(R.id.action_selectedItemFragment_to_galleryFragment)
         }
 

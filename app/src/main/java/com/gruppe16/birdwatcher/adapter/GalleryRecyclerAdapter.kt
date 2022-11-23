@@ -72,7 +72,7 @@ class GalleryRecyclerAdapter (
                     result.count = galleryFilterList.size
                     result.values = galleryFilterList
                 } else {
-                    var searchWord = constraint.toString()
+                    val searchWord = constraint.toString()
 
                     for(listing in galleryFilterList) {
                         if(
