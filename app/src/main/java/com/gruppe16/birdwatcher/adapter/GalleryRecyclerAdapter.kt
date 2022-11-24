@@ -44,9 +44,6 @@ class GalleryRecyclerAdapter (
         holder.itemView.setOnClickListener {
             onListingClickedListener.onListingClicked(position)
         }
-
-    //TODO: Flere ting legges til her ettersom vi får mer data på plass for listing
-
     }
 
     override fun getItemCount(): Int {

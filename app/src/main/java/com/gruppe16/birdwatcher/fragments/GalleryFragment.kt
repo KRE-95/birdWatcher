@@ -38,7 +38,6 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
         return binding.root
     }
 
-    //denne fungerer, men ingen visning enda
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         galleryArrayList = arrayListOf()
@@ -67,13 +66,11 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
 
     override fun onDestroyView() {
         super.onDestroyView()
-        //TODO: Benyttes kun for test, sjekker hvor mange fugler som ligger i galleriet når det ødelegges
-        println(galleryArrayList.size)
     }
 
     private fun getDataFromFirestore() {
         db = FirebaseFirestore.getInstance()
-        db.collection("listings")//TODO Add query to sort by descending?
+        db.collection("listings")
             .get()
             .addOnCompleteListener { task ->
              if (task.isSuccessful) {
@@ -104,7 +101,3 @@ class GalleryFragment : Fragment(), GalleryRecyclerAdapter.OnListingClickedListe
         findNavController().navigate(R.id.action_galleryFragment_to_selectedItemFragment)
     }
 }
-
-//TODO: JUST NOTES
-// Få tak på data som ligger lokalt etter databasekall og føre det til recyclerView
-
